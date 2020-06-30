@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html dir="ltr" class="no-js ie ie6 lte7 lte8 lte9"><![endif]-->
+<!--[if IE 7 ]><html dir="ltr" class="no-js ie ie7 lte7 lte8 lte9"><![endif]-->
+<!--[if IE 8 ]><html dir="ltr" class="no-js ie ie8 lte8 lte9"><![endif]-->
+<!--[if IE 9 ]><html dir="ltr" class="no-js ie ie9 lte9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="cybozu,cybozu开发者网站,cybozu developer network,kintone,kintone api,kintone开发,kintone学习,云平台,模块化,云服务,API,javascript教程,salesforce中国"/><meta name="description" content="我们是cybozu developer network开发者网站，我们希望有更多的开发者能参与到未来的云计算时代的技术行列，也希望为广大开发者提供良好的在线交流云服务的空间。如果你对模块化的、拖拉式产品配置和开发有兴趣，如果你立志于投入云服务的技术领域，这里将提供给你详细的开发手册、难题解疑，让开发人员与时俱进！"/>    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="_csrf" value="T19QQ1FzdExKa1pOMUpkS2F1VWRfaHZPX0g0OXBpcHBugrZiG3gljQXXPsdiVtfzVnOonGruQe5r4CuDEaf5rw==">
+ 
+<link rel="stylesheet" type="text/css" href="https://fs.kf5.com/generated/cssv2/style_acdf0905e94f9293ba3bb21d991144aa.css?v=32d65128f5f5ae2c" />
+<link rel="stylesheet" type="text/css" href="https://fs.kf5.com/generated/cssv2/setting_acdf0905e94f9293ba3bb21d991144aa.css?v=32d65128f5f5ae2c" />
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$.ajaxSetup({
+        headers: {
+            "X-CSRF-Token": "T19QQ1FzdExKa1pOMUpkS2F1VWRfaHZPX0g0OXBpcHBugrZiG3gljQXXPsdiVtfzVnOonGruQe5r4CuDEaf5rw=="
+        }
+    })
+/*]]>*/
+</script>
+<title>第 0篇 开始kintone自定义之前需知晓的5点 - cybozu - cybozu开发者网站</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/upload/23361/201608/57bd0b4a85f71_383.ico" />    <!--[if lt IE 9]>
+    <script type="text/javascript" src="//assets-cdn.kf5.com/help-center/js/vendor/html5.js"></script>
+    <script type="text/javascript">
+        (function() {
+            var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+            var i= e.length;
+            while (i--){
+                document.createElement(e[i]);
+            }
+        })();
+    </script>
+    <style type="text/css">
+        article,aside,dialog,footer,header,section,footer,nav,figure,menu { display:block;}
+    </style>
+    <![endif]-->
+    <!--请在这里编写顶部声明，将生成在页面head标签内-->
+<!-- Start of KF5 supportbox script -->
+<!-- End of KF5 supportbox script -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c84ea6d49690360ded1eef2457c9b8b8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript" src="
+https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/kf5.js"></script>
+<script type="text/javascript" src="
+https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/anchorlinks.js"></script>
+<link rel="stylesheet" type="text/css" href="https://js.cybozu.cn/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="
+https://cybozukf5.oss-cn-shanghai.aliyuncs.com/css/colorbox.css">
+<!--<link rel="stylesheet" type="text/css" href="https://gitee.com/cybozudev/zhcn/raw/master/css/colorbox.css">-->
+<script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js">
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/system_scripts.js" type="text/javascript"></script>
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/fw/jquery.colorbox-min.js" type="text/javascript"></script>
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/image_viewer.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="header" id="header">
+
+<!-- 头部 位置-->
+
+</div>
+<main style='display:none;'>
+    <header class="main-header" style="margin-top: 100px;">
+        <div class="wrap">
+            <ul class="breadcrumbs"> <li> <a href="/hc/">首页</a></li> <li> <a href="/hc/kb/category/27413/">教程</a></li> <li> <a href="/hc/kb/section/106248/">kintone API入门系列</a></li></ul>
+            <form accept-charset="UTF-8" action="/hc/search/results/" class="main-header-search" method="get" role="search">
+		  <label for="search"><input id="search" name="keyword" value="" placeholder="输入问题关键字，找到答案" type="search"><i class="icon-search"></i></label>
+		  <input type="submit" name="" value="搜索" />
+		</form>
+        </div>
+    </header>
+    <div class="content">
+        
+        <div class="content-main ">
+            <article class="article">
+                <header class="article-header">
+                    <h2>
+                        第 0篇 开始kintone自定义之前需知晓的5点
+                        <a href="javascript:void(0);" class="subscribe" onclick="cancelSubscribe();">取消关注</a><a target="_blank" href="/agent/#/help-center/posts/215327/edit" class="edit">编辑</a>
+                    </h2>
+                    <section class="article-header-info">
+                        <span class="author"><a href="/agent/#/users/6390926/" target="_blank">aki</a></span> • 
+                        <span>发表于：2016年10月20日 13:48:37</span>
+                         • <span>更新于：2019年02月02日 17:20:14</span>
+                    </section>
+                </header>
+                <div class="article-content">
+                    <div class="original-content"><h1>Index</h1><ul class="anchor-link list-paddingleft-2"><li><p><a href="#step0">概要</a></p></li><li><p><a href="#step2">第一点：准备编辑器</a></p></li><li><p><a href="#step3">第二点：了解调试方法</a></p></li><li><p><a href="#step4">第三点：了解提高开发效率的方法</a></p></li><li><p><a href="#step5">第四点：了解JavaScript代码检查工具</a></p></li><li><p><a href="#step6">第五点：充分利用cybozu developer network社区讨论</a></p></li><li><p><a href="#step7">最后</a></p></li></ul><h2><a style="font-size:24px;color:rgb(21,142,194);"></a>概要</h2><p>本文主要介绍开始学习人气爆棚的【<a href="https://cybozudev.kf5.com/hc/kb/section/106248/">kintone API入门系列</a>】之前，需要了解的几点内容。</p><h2><a style="font-size:24px;color:rgb(21,142,194);"></a>第一点：准备编辑器</h2><p>以下介绍我们推荐的几款JavaScript文件编辑器及IDE。</p><h3><a href="https://cybozudev.kf5.com/hc/kb/article/1010754/">JSEdit for kintone</a></h3><p>此插件将会公布在本网站的范例里。<br>可在插件设置页面直接编写JavaScript。</p><h3><a href="https://c9.io/" target="_blank" rel="noreferrer noopener">Cloud9</a></h3><p>此IDE在面向技术人员的活动中、以及kintone devCamp的学习会上也常用到。</p><h3><a href="https://atom.io/" target="_blank" rel="noreferrer noopener">Atom</a></h3><p>Atom是Github开发的、kintone开发人员极力推荐的一款文本编辑器。</p><h3><a href="http://brackets.io/" target="_blank" rel="noreferrer noopener">Brackets</a></h3><p>由Adobe提供的编辑器。</p><h3><a href="https://www.sublimetext.com/" target="_blank" rel="noreferrer noopener">Sublime Text</a></h3><p>此编辑器在Web制作上特别受欢迎。</p><p><br>其他还有各式各样的编辑器，大家可以根据使用习惯选择最合适自己的！</p><h2><a style="font-size:24px;color:rgb(21,142,194);"></a>第二点：了解调试方法</h2><p>在自定义kintone JavaScript时，有时会发生错误。以下Tips集中介绍调查错误原因的方法。</p><ul class="list-paddingleft-2"><li><p><a href="https://cybozudev.kf5.com/hc/kb/article/1004432/">程序动不了？这种情况可以调试看看哦！入门篇</a></p></li></ul><p><img src="https://cybozudev.kf5.com/attachments/download/1106725/00157ecb037266fee874ba744f7abe2/" style="font-size:16px;" alt="00157ecb037266fee874ba744f7abe2"></p><h2><a style="font-size:24px;color:rgb(21,142,194);"></a>第三点：了解提高开发效率的方法</h2><p>将JavaScript文件添加到kintone中有两种方法。一是指定URL，二是上传文件。</p><p>往往在开发过程中需要重复修改代码，改动后又想立即确认结果。以下Tips就是介绍如何方便地实时确认修改结果。</p><ul class="list-paddingleft-2"><li><p><a href="https://cybozudev.kf5.com/hc/kb/article/1004431/">轻松调试JavaScript自定义的攻略</a></p></li></ul><p><img src="https://cybozudev.kf5.com/attachments/download/1106727/00157ecb070d245a5938a2b2f59fcb6/" style="font-size:16px;" alt="00157ecb070d245a5938a2b2f59fcb6"></p><h2><a style="font-size:24px;color:rgb(21,142,194);"></a>第四点：了解JavaScript代码检查工具</h2><p>开发完成后，在放到公司内部的应用中之前，别忘了要检查一下代码哦。<br>当然，让别的开发人员来帮忙检查也很重要，但我们可以充分利用本网站上公布的自动检测工具自己检查一下。</p><p><a href="https://cybozudev.kf5.com/hc/kb/article/206404/">jswatchdog（JavaScript 代码检查器）</a></p><p><img src="https://cybozudev.zendesk.com/hc/ja/article_attachments/204423426/capture2.png" alt="" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);font-size:16px;vertical-align:middle;"></p><h2><a style="font-size:24px;color:rgb(21,142,194);"></a>第五点：充分利用cybozu developer network社区讨论</h2><p>在进行JavaScript 开发时，往往会进入死胡同。<br>这种情况，可以使用本网站的社区讨论向他人讨教哦。自己上手后也可以尝试一下去回答别人的提问。</p><p><a href="https://cybozudev.kf5.com/hc/community/topic/">cybozu developer network 社区讨论</a></p><p><img src="https://cybozudev.kf5.com/attachments/download/1107105/00157ecbdb7709bfa9c28895c84990d/" style="font-size:16px;" alt="00157ecbdb7709bfa9c28895c84990d"></p><h2><a style="font-size:24px;color:rgb(21,142,194);"></a>最后</h2><p>大家准备好了吗？让我们开始学习入门系列吧。<br><strong>Let’s kintone customize＼(^o^)／</strong></p><p>                                                        <a href="https://cybozudev.kf5.com/hc/kb/article/210790">第1篇 kintone javascript API的使用方法 &gt;&gt;</a></p><p><br></p></div>
+                    <p class="next_prev_wrap"><a title="第 1篇 kintone javascript API的使用方法" class="next" href="/hc/kb/article/210790/">下一篇 第 1篇 kintone javascript API的使用方法</a></p>
+                    
+                </div>
+                <footer class="article-footer" style="display:none;">
+                    <ul class="share-list">
+                <li class="wechat"><div class="qr-box" data-url="https://cybozudev.kf5.com/hc/kb/article/215327/"></div><a href="javascript:void(0);"><i class="icon-weixin"></i></a></li>
+                <li class="sina"><a href="http://service.weibo.com/share/share.php?url=https%3A%2F%2Fcybozudev.kf5.com%2Fhc%2Fkb%2Farticle%2F215327%2F&title=%E3%80%90%E7%AC%AC+0%E7%AF%87+%E5%BC%80%E5%A7%8Bkintone%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B9%8B%E5%89%8D%E9%9C%80%E7%9F%A5%E6%99%93%E7%9A%845%E7%82%B9%E3%80%91Index%E6%A6%82%E8%A6%81%E7%AC%AC%E4%B8%80%E7%82%B9%EF%BC%9A%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E5%99%A8%E7%AC%AC%E4%BA%8C%E7%82%B9%EF%BC%9A%E4%BA%86%E8%A7%A3%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E7%AC%AC%E4%B8%89%E7%82%B9%EF%BC%9A%E4%BA%86%E8%A7%A3%E6%8F%90....&appkey=&pic=&searchPic=false" target="_blank"><i class="icon-weibo"></i></a></li>
+                <li class="qq"><a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fcybozudev.kf5.com%2Fhc%2Fkb%2Farticle%2F215327%2F&title=%E3%80%90%E7%AC%AC+0%E7%AF%87+%E5%BC%80%E5%A7%8Bkintone%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B9%8B%E5%89%8D%E9%9C%80%E7%9F%A5%E6%99%93%E7%9A%845%E7%82%B9%E3%80%91Index%E6%A6%82%E8%A6%81%E7%AC%AC%E4%B8%80%E7%82%B9%EF%BC%9A%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E5%99%A8%E7%AC%AC%E4%BA%8C%E7%82%B9%EF%BC%9A%E4%BA%86%E8%A7%A3%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E7%AC%AC%E4%B8%89%E7%82%B9%EF%BC%9A%E4%BA%86%E8%A7%A3%E6%8F%90....&desc=&summary=%E3%80%90%E7%AC%AC+0%E7%AF%87+%E5%BC%80%E5%A7%8Bkintone%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B9%8B%E5%89%8D%E9%9C%80%E7%9F%A5%E6%99%93%E7%9A%845%E7%82%B9%E3%80%91Index%E6%A6%82%E8%A6%81%E7%AC%AC%E4%B8%80%E7%82%B9%EF%BC%9A%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E5%99%A8%E7%AC%AC%E4%BA%8C%E7%82%B9%EF%BC%9A%E4%BA%86%E8%A7%A3%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%E7%AC%AC%E4%B8%89%E7%82%B9%EF%BC%9A%E4%BA%86%E8%A7%A3%E6%8F%90....&site=&pics=" target="_blank"><i class="icon-qq"></i></a></li>
+            </ul>
+                </footer>
+            </article>
+            <div id="article-comments" class="article-comments">
+                <h2>回复<span>(2)</span></h2>
+                <ul class="article-comments-list"><li id="comment_1012953" class="comment_1012953">
+				<a href="/agent/#/users/6039949/" target="_blank"><img   class="article-comments-item-pic" src="https://fs.kf5.com/upload/23361/201905/5cde80a8344ef_699.jpg" onerror="this.src='/images/icons/admin.jpg'" /></a>
+					<div class="article-comments-item-header">
+						<span class="author"><a href="/agent/#/users/6039949/" target="_blank">betsy_yan</a></span> •
+						<time>发表于 2019年04月09日 15:58</time> • <a href="#comment-form" onclick="quote_comment(1012953)">引用</a>  <a href="javascript:void(0);" onclick="editForumComment(1012953)">编辑</a> <a href="javascript:void(0);" onclick="delete_comment(1012953)">删除</a></div>
+					<div class="comment-body clearfix">
+						<div class="article-comments-item-content"><p>你好，</p><p>用模板创建的应用是不带有自定义JS代码的。需要你自己添加。<br></p><p>如果是问如何添加自定义的JS代码，请参看以下文章：</p><p><a href="https://cybozudev.kf5.com/hc/kb/article/202926/">https://cybozudev.kf5.com/hc/kb/article/202926/</a></p><p>希望对你有帮助。</p><blockquote style="margin:8px 0px 10px;padding-left:10px;border-left:2px solid rgb(33,211,118);"><p style="font-size:14px;color:#777;margin-bottom:0px;font-family:'微软雅黑';">引用 <a href="/agent/#/users/80982965/" target="_blank" rel="noreferrer noopener">closer</a> 的回复：</p><p style="font-family:'微软雅黑';">我想问一个问题，用‘商谈报告’已有模板创建的应用，里面的自定义js开发代码怎么才能看到</p></blockquote></div>
+					</div></li><li id="comment_1012951" class="comment_1012951">
+					<div class="article-comments-item-header">
+						<span class="author"><a href="/agent/#/users/80982965/" target="_blank">closer</a></span> •
+						<time>发表于 2019年04月09日 15:07</time> • <a href="#comment-form" onclick="quote_comment(1012951)">引用</a>  <a href="javascript:void(0);" onclick="editForumComment(1012951)">编辑</a> <a href="javascript:void(0);" onclick="delete_comment(1012951)">删除</a></div>
+					<div class="comment-body clearfix">
+						<div class="article-comments-item-content"><p>我想问一个问题，用‘商谈报告’已有模板创建的应用，里面的自定义js开发代码怎么才能看到</p></div>
+					</div></li></ul>
+                
+                <div style="padding:10px 0 10px 76px;color:grey;">注意：贴代码时请注意格式并使用"代码语言"，与本文无关的问题请至“<a href="https://cybozudev.kf5.com/hc/community/topic/">讨论社区</a>”提问。</div>
+                <div class="comment-form" id="comment-form">
+				         <a href="/agent/#/users/6034857/" target="_blank"><img   class="article-comments-form-pic" src="https://fs.kf5.com/upload/23361/201902/5c64d07478616_491.png" onerror="this.src='/images/icons/admin.jpg'" /></a>
+                        <form action="" method="post">
+                            <textarea id="comment" class="ctt-cmteditor"></textarea>
+                            <input type="submit" name="" value="提交" onclick="return comment();" class="article-comments-form-submit" />
+                        </form>
+                    </div>
+            </div>
+        </div>
+
+        <div class="right" id="right" style="display:none">
+            <div class="category-section category-27412">
+				<h2><a href="/hc/kb/category/27412/">开始</a></h2><ul><li class="section-106246"><h3><a href="/hc/kb/section/106246/">Getting Started</a></h3></li><li class="section-1125834"><h3><a href="/hc/kb/section/1125834/">kintone开发者账号</a></h3></li></ul></div><div class="category-section category-1018929">
+				<h2><a href="/hc/kb/category/1018929/">行业案例</a></h2><ul><li class="section-1074068"><h3><a href="/hc/kb/section/1074068/">共通</a></h3></li></ul></div><div class="category-section category-27413">
+				<h2><a href="/hc/kb/category/27413/">教程</a></h2><ul><li class="section-106247"><h3><a href="/hc/kb/section/106247/">kintone自定义概要</a></h3></li><li class="section-106248"><h3><a href="/hc/kb/section/106248/">kintone API入门系列</a></h3></li><li class="section-1001894"><h3><a href="/hc/kb/section/1001894/">kintone自定义的技巧</a></h3></li></ul></div><div class="category-section category-27414">
+				<h2><a href="/hc/kb/category/27414/">API文档和SDK</a></h2><ul><li class="section-106249"><h3><a href="/hc/kb/section/106249/">kintone API指南</a></h3></li><li class="section-106250"><h3><a href="/hc/kb/section/106250/">kintone REST API</a></h3></li><li class="section-106251"><h3><a href="/hc/kb/section/106251/">kintone JavaScript API</a></h3></li><li class="section-1125808"><h3><a href="/hc/kb/section/1125808/">cybozu User API</a></h3></li><li class="section-1000279"><h3><a href="/hc/kb/section/1000279/">SDK / Tools</a></h3></li><li class="section-1000278"><h3><a href="/hc/kb/section/1000278/">kintone 插件开发</a></h3></li><li class="section-1073865"><h3><a href="/hc/kb/section/1073865/">cybozu.cn共通</a></h3></li></ul></div><div class="category-section category-27415">
+				<h2><a href="/hc/kb/category/27415/">开发范例</a></h2><ul><li class="section-106252"><h3><a href="/hc/kb/section/106252/">自定义开发</a></h3></li><li class="section-1019421"><h3><a href="/hc/kb/section/1019421/">第三方API整合</a></h3></li></ul></div><div class="category-section category-27416">
+				<h2><a href="/hc/kb/category/27416/">插件</a></h2><ul><li class="section-1073272"><h3><a href="/hc/kb/section/1073272/">插件</a></h3></li></ul></div><div class="category-section category-27417">
+				<h2><a href="/hc/kb/category/27417/">工具</a></h2><ul><li class="section-106254"><h3><a href="/hc/kb/section/106254/">开发工具</a></h3></li><li class="section-106255"><h3><a href="/hc/kb/section/106255/">资源库</a></h3></li></ul></div><div class="category-section category-28043">
+				<h2><a href="/hc/kb/category/28043/">通知</a></h2><ul><li class="section-108673"><h3><a href="/hc/kb/section/108673/">资讯动态</a></h3></li><li class="section-108672"><h3><a href="/hc/kb/section/108672/">API更新信息</a></h3></li><li class="section-111587"><h3><a href="/hc/kb/section/111587/">非公开（测试用）</a></h3></li></ul></div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer-index" style="display:none;">
+    <div class="container">
+        <div class="stay">
+            <div class="about">
+                <div><a href="https://cybozudev.kf5.com/hc/kb/article/1242643/">联系我们</a></div>
+                <div><a href="https://www.cybozu.cn">关于我们</a></div>
+                <div><a href="https://cybozudev.kf5.com/hc/kb/article/202730" class="products-nav">使用协议</a></div>
+                <div><a href="https://www.cybozu.cn/terms/privacy/" class="company-nav">隐私政策</a></div>
+            </div>
+            <div class="weichat">
+                <div>微信公众号</div>
+                <div class="image">
+                    <a><img src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/images/qrcode_for_developer network - da.jpg" style="width:100px;"/></a>
+                </div>
+            </div>
+            <div class="gongan">
+                <div>
+                    <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010502000501">
+                        <img src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/images/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" style="vertical-align:middle;" />&nbsp;&nbsp;沪公网安备 31010502000501号
+                    </a>
+                    <a href="http://icp.chinaz.com/info?q=%E6%B2%AAICP%E5%A4%8710208523%E5%8F%B7">
+                        &nbsp;&nbsp;&nbsp;&nbsp;沪ICP备10208523号-2
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;© 2015 Cybozu, Inc.
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <div id="forum_comment_layer" class="pooup-bscrim" style="display:none;">
+        <div class="popup-mask"></div>
+        <div class="popup-box" style="z-index:10000;">
+            <header>
+                <h2>编辑回复</h2>
+                <a href="javascript:void(0);" class="close" onclick="hiddenLockLayer('#forum_comment_layer');"><i class="icon-uniE119"></i></a>
+            </header>
+            <div class="popup-content" style="height:248px;">
+                <div>
+                    <input type="hidden" value="0" id="forum_comment_id" name="forum_comment_id"/>
+                    <textarea id="forum_comment_content" class="wysiwyg"></textarea>
+                </div>
+            </div>
+            <footer>
+                <a href="javascript:void(0);" class="btn" onclick="updateForumComment();">提交</a>
+            </footer>
+        </div>
+    </div>
+<script type="text/javascript" src="https://fs.kf5.com/generated/jsv2/application_acdf0905e94f9293ba3bb21d991144aa.js?v=32d65128f5f5ae2c"></script>
+<script src="./dist/cybozu_kf5_header.bundle.js" type="text/javascript"></script>
+</body>
+</html>

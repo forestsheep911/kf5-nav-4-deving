@@ -1,0 +1,9 @@
+.cust_content {
+    margin-left: 280px;
+}
+
+@media (max-width:960px){
+.cust_content {
+    margin-left: 0;
+  }
+}

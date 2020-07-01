@@ -9,7 +9,6 @@
 ![适配大屏幕效果](/resources/full_screen.gif)
 <br/>
 <br/>
-
 * 适配手机等小屏幕效果
 ![适配手机等小屏幕](/resources/min_screen.gif)
 
@@ -34,7 +33,7 @@
 </footer>
 ````
 
-* 对"知识库分区页"做如下修改：给部分html元素添加“dislay:none;”属性隐藏起来。
+* 对"知识库分区页"做如下修改：给部分html元素添加“display:none;”属性隐藏起来。
 ````
 <main style="display:none;"> //修改main元素
 //将旧的导航元素隐藏
@@ -43,7 +42,7 @@
 </div>
 ````
 
-* 对"知识库分类页"做如下修改：给部分html元素添加“dislay:none;”属性隐藏起来。
+* 对"知识库分类页"做如下修改：给部分html元素添加“display:none;”属性隐藏起来。
 ````
 //同上
 <main style="display:none;">
@@ -52,7 +51,7 @@
         </div>
 ````
 
-* 对“知识库文档页”做如下修改：给部分html元素添加“dislay:none;”属性隐藏起来。
+* 对“知识库文档页”做如下修改：给部分html元素添加“display:none;”属性隐藏起来。
 ````
 //同上
 <main style="display:none;">
@@ -61,7 +60,7 @@
         </div>
 ````
 
-* 对“搜索结果页”做如下修改：给部分html元素添加“dislay:none;”属性隐藏起来。
+* 对“搜索结果页”做如下修改：给部分html元素添加“display:none;”属性隐藏起来。
 ````
 <main style="display:none;"> //修改main元素
 ````
@@ -69,7 +68,7 @@
 完成以上修改，就大功告成。
 
 ### 如何继续开发和构建 cybozu_kf5_header.bundle.js
-本demo使用到了react框架，和基于react框架的一套组件库Material-UI， 以上技术的license都是MIT协议可以放心使用。
+本demo使用到了react框架，和基于react框架的一套UI设计组件库Material-UI， 以上技术的license都是MIT协议可以放心使用。
 
 * 在本地开发环境机器上提前安装好node.js运行环境.
 * 将本github资源库整体下载到本地开发环境机器上.
@@ -79,7 +78,7 @@
 * npm run build （这个命令就会生成“cybozu_kf5_header.bundle.js”文件）
 
 ### 补充说明
-本dome中 Title bar上的 多语言切换和搜索目前只是放了一个ICON上去展位，具体实现效果因为不在本调查范围内，所以没有具体实现.
+本dome中 Title bar上的 多语言切换和搜索目前只是放了一个ICON占位，具体实现效果因为不在本调查范围内，所以没有具体实现.
 
 
 

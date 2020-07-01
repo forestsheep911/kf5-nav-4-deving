@@ -9,6 +9,7 @@
 ![适配大屏幕效果](/resources/full_screen.gif)
 <br/>
 <br/>
+
 * 适配手机等小屏幕效果
 ![适配手机等小屏幕](/resources/min_screen.gif)
 

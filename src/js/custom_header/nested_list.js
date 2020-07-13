@@ -8,7 +8,7 @@ import Collapse from '@material-ui/core/Collapse';
 import RootRef  from '@material-ui/core/RootRef';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import {getCacheArticles, getArticlesBySection} from './util';
+import {getCacheArticles, getArticlesBySection} from '../util/util';
 
 const useStyles = makeStyles((theme) => ({
   root: {

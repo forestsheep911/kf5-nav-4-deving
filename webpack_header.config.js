@@ -3,7 +3,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: {
-        'cybozu_kf5_header': path.resolve(__dirname, 'src/js/cybozu_kf5_header'),
+        'cybozu_kf5_header': path.resolve(__dirname, 'src/js/custom_header/cybozu_kf5_header'),
+        'common_react': path.resolve(__dirname, 'src/js/common_react')
     },
     output: {
         filename: '[name].bundle.js',
@@ -21,7 +22,6 @@ module.exports = {
                             presets: ['@babel/preset-react',  '@babel/preset-env'],
                             plugins: [["@babel/plugin-transform-runtime", {"corejs": 2}]]
                         },
-                        
                     },
                 ] 
             },
@@ -29,18 +29,16 @@ module.exports = {
                 test: /\.css$/,
                 use: [ 'style-loader', 'css-loader' ]
             }
-            
         ],
     },
     optimization: {
         minimizer: [new UglifyJsPlugin({
             test: /\.js(\?.*)?$/i,
+            // uglifyOptions: {  ie8: true} 
           })],
-    },
-    performance: {
-        hints: false,
-        maxEntrypointSize: 512000,
-        maxAssetSize: 512000
+          splitChunks: {
+            chunks: 'all'
+          }
     },
     mode: 'production'
 }

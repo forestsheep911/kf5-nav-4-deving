@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config ./webpack.config.js",
-    "build_dev": "webpack --config ./webpack_dev.config.js",
-    "build_test": "webpack --config ./webpack_test.config.js"
+    "build_three_leve_tree": "webpack --config ./webpack_header.config.js",
+    "build_three_leve_tree_marge": "webpack --config ./webpack_header_marge.config.js"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,7 @@
     "@babel/runtime-corejs2": "^7.10.3",
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
+    "core-js": "^3.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }

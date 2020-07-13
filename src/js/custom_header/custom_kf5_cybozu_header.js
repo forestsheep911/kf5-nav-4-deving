@@ -1,4 +1,4 @@
-import css from '../css/custom_header.css';
+import css from '../../css/custom_header.css';
 import React from 'react';
 import {AppBar, Toolbar, IconButton, Link, Drawer, Hidden, useScrollTriggger} from '@material-ui/core';
 import {makeStyles, useTheme} from '@material-ui/core/styles';
@@ -8,7 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import NestedList from './nested_list';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import PropTypes from 'prop-types';
-import {getSectionIdByArticle, getCacheArticles, getArticlesBySection} from './util';
+import {getSectionIdByArticle, getCacheArticles, getArticlesBySection} from '../util/util';
 
 const drawerWidth = 240;
 

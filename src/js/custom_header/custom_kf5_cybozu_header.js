@@ -155,8 +155,8 @@ export default function KfiveCustomHeader(props) {
     const classes = useStyles();
     const theme = useTheme();
 
-    const currentUrl = parent.document.getElementById('preview_frame') ? parent.document.getElementById('preview_frame').contentWindow.location.href : window.location.href;
-    // const currentUrl = 'https://cybozudev.kf5.com/hc/kb/article/204093/';
+    // const currentUrl = parent.document.getElementById('preview_frame') ? parent.document.getElementById('preview_frame').contentWindow.location.href : window.location.href;
+    const currentUrl = 'https://cybozudev.kf5.com/hc/kb/article/204093/';
     console.log('当前URL：', currentUrl);
 
     const [initDataState, setInitDataState] = React.useState(1);
@@ -272,7 +272,7 @@ export default function KfiveCustomHeader(props) {
               <IconButton color="black" aira-label="open drawer" edge="start" onClick={handleDrawerToggle} className={classes.menuButton}>
                 <MenuIcon className={classes.menuIcon} />
               </IconButton>
-              <div style={{disapley:'inline-block'}}>
+              <div style={{display:'inline-block'}}>
                 <a href="/hc/" title="cybozu">
                   <img style={{ height:'30px', width:'140px'}}src="https://fs.kf5.com/upload/23361/201609/57d644f573e8d_327.png" alt=""/>
                 </a>

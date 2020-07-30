@@ -93,3 +93,16 @@ html{scroll-behavior:smooth;}
 .dynamic_index_li_selected a{
   color: #000000;
 }
+
+
+.cus_h {
+  position: relative;
+}
+
+.cus_h:before {
+  content: '';
+  display: block;
+  height: 70px;
+  margin-top: -70px;
+  visibility: hidden;
+}

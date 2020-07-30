@@ -1,11 +1,11 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const bundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: {
         'cybozu_kf5_header': path.resolve(__dirname, 'src/js/custom_header/cybozu_kf5_header'),
         'dynamic_index': path.resolve(__dirname, 'src/js/dynamic_index/index'),
-        'common_react': path.resolve(__dirname, 'src/js/common_react')
     },
     output: {
         filename: '[name].bundle.js',
@@ -38,9 +38,45 @@ module.exports = {
             // uglifyOptions: {  ie8: true} 
           })],
           splitChunks: {
-            chunks: 'all'
+            chunks: 'all',
+            minSize: 1,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 4,
+            automaticNameDelimiter: '_',
+            automaticNameMaxLength: 30,
+            cacheGroups: {
+                react: {
+                    name: 'react_main', //提取react库代码
+                    test: (module) => {
+                        return /react/.test(module.context);
+                    },
+                    chunks: 'all',
+                    priority: 10,
+                },
+                materialUI: {
+                    name: 'material_ui_core_main',
+                    test: (module) => {
+                        return /[\\/]node_modules[\\/]@material-ui[\\/]/.test(module.context);
+                    },
+                    chunks: 'all',
+                    priority: 5,
+                    reuseExistingChunk: true
+                },
+                vendors: {
+                    name: 'vendor_libarys',
+                    test: /[\\/]node_modules[\\/]/, //位于node_module中的模块做提取
+                    chunks: 'all',
+                    priority: -10,
+                    reuseExistingChunk: true
+                }
+            }
+
           }
     },
+    plugins: [
+        new bundleAnalyzerPlugin()
+    ],
     performance: {
       hints: false,
       maxEntrypointSize: 512000,

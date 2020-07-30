@@ -61,6 +61,8 @@ export function DynamicIndex() {
           elm_dom_obj.setAttribute('id', 'dynamicidx' + idx);
         }
 
+        elm_dom_obj.classList.add('cus_h');
+        elm_dom_obj.style.backgroundPositionY = '70px';
         index_item.title = elm_dom_obj.innerText;
         index_item.second_level = elm_dom_obj.nodeName === h3 ? true : false;
         index_item.elm = elm_dom_obj;

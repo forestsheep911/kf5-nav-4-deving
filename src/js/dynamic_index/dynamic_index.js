@@ -17,26 +17,26 @@ export function DynamicIndex() {
       return;
     }
 
-    window.addEventListener('scroll', () => {
+    // window.addEventListener('scroll', () => {
       
-      dynamicIndexObject.map((item, idx) => {
-        let current_page_TY = (typeof window.scrollY === 'undefined') ? document.documentElement.scrollTop : window.scrollY;
-        let refer_v_p = current_page_TY - dynamicIndexObject[dynamicIndexPosition.position].elm.offsetTop;
-        let refer_v_n = current_page_TY - item.elm.offsetTop;
+    //   dynamicIndexObject.map((item, idx) => {
+    //     let current_page_TY = (typeof window.scrollY === 'undefined') ? document.documentElement.scrollTop : window.scrollY;
+    //     let refer_v_p = current_page_TY - dynamicIndexObject[dynamicIndexPosition.position].elm.offsetTop;
+    //     let refer_v_n = current_page_TY - item.elm.offsetTop;
 
-        if ((refer_v_n <= 0 && refer_v_p <= 0) || (refer_v_n > 0 && refer_v_p > 0))
-        {
-          return;
-        }
+    //     if ((refer_v_n <= 0 && refer_v_p <= 0) || (refer_v_n > 0 && refer_v_p > 0))
+    //     {
+    //       return;
+    //     }
 
-        if (Math.abs(refer_v_p) > Math.abs(refer_v_n))
-        {
-          dynamicIndexPosition.position = idx;
-          updatePosition(idx);
-          return;
-        }
-      });
-    });
+    //     if (Math.abs(refer_v_p) > Math.abs(refer_v_n))
+    //     {
+    //       dynamicIndexPosition.position = idx;
+    //       updatePosition(idx);
+    //       return;
+    //     }
+    //   });
+    // });
    
     initDynamicIndex();
     setInit(false);

@@ -74,9 +74,9 @@ module.exports = {
 
           }
     },
-    plugins: [
-        new bundleAnalyzerPlugin()
-    ],
+    // plugins: [
+    //     new bundleAnalyzerPlugin()
+    // ],
     performance: {
       hints: false,
       maxEntrypointSize: 512000,

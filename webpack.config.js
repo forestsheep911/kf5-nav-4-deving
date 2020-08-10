@@ -1,6 +1,6 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const bundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const bundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; //这个是打包分析插件，可以看到每个包都包含了哪些模块.
 
 module.exports = {
     entry: {
@@ -82,5 +82,6 @@ module.exports = {
       maxEntrypointSize: 512000,
       maxAssetSize: 512000
     },
-    mode: 'production'
+    mode: 'development'
+    // mode: 'production'
 }

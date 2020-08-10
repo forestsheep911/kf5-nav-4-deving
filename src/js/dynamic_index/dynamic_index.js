@@ -1,5 +1,6 @@
 import css from '../../css/dynamic_index_style.css';
 import React from 'react';
+import {throttle} from '../util/util.js';
 
 const  dynamicIndexObject = [];
 const  dynamicIndexPosition = {position: 0};
@@ -17,31 +18,32 @@ export function DynamicIndex() {
       return;
     }
 
-    // window.addEventListener('scroll', () => {
-      
-    //   dynamicIndexObject.map((item, idx) => {
-    //     let current_page_TY = (typeof window.scrollY === 'undefined') ? document.documentElement.scrollTop : window.scrollY;
-    //     let refer_v_p = current_page_TY - dynamicIndexObject[dynamicIndexPosition.position].elm.offsetTop;
-    //     let refer_v_n = current_page_TY - item.elm.offsetTop;
-
-    //     if ((refer_v_n <= 0 && refer_v_p <= 0) || (refer_v_n > 0 && refer_v_p > 0))
-    //     {
-    //       return;
-    //     }
-
-    //     if (Math.abs(refer_v_p) > Math.abs(refer_v_n))
-    //     {
-    //       dynamicIndexPosition.position = idx;
-    //       updatePosition(idx);
-    //       return;
-    //     }
-    //   });
-    // });
+    let scrollFun = throttle(drawProfileIndex, 100);
+    window.addEventListener('scroll', scrollFun);
    
     initDynamicIndex();
     setInit(false);
   });
 
+  const drawProfileIndex = () => {
+    dynamicIndexObject.map((item, idx) => {
+      let current_page_TY = (typeof window.scrollY === 'undefined') ? document.documentElement.scrollTop : window.scrollY;
+        let refer_v_p = current_page_TY - dynamicIndexObject[dynamicIndexPosition.position].elm.offsetTop;
+        let refer_v_n = current_page_TY - item.elm.offsetTop;
+
+        if ((refer_v_n <= 0 && refer_v_p <= 0) || (refer_v_n > 0 && refer_v_p > 0))
+        {
+          return;
+        }
+
+        if (Math.abs(refer_v_p) > Math.abs(refer_v_n))
+        {
+          dynamicIndexPosition.position = idx;
+          updatePosition(idx);
+          return;
+        }
+    })
+  }
   const initDynamicIndex = () => {
     var h1 = document.createElement('h1').nodeName;
     var h2 = document.createElement('h2').nodeName;
@@ -52,7 +54,6 @@ export function DynamicIndex() {
       let elm_dom_obj = original_content.get(idx);
       if(elm_dom_obj.nodeName === h1 || elm_dom_obj.nodeName === h2 || elm_dom_obj.nodeName === h3){
         let index_item = {};
-        console.log(elm_dom_obj, elm_dom_obj.getAttribute('id'));
         if(elm_dom_obj.getAttribute('id') !== null && elm_dom_obj.getAttribute('id').length > 0)
         {
           index_item.id = elm_dom_obj.getAttribute('id');
@@ -102,12 +103,12 @@ export function DynamicIndex() {
   }
 
   return (
-    <div class="dynamic_index_root" onMouseOver={() => expandIndex()} onMouseOut={() => closeIndex()}>
+    <div className="dynamic_index_root" onMouseOver={() => expandIndex()} onMouseOut={() => closeIndex()}>
       <ul className={`dynamic_index_ul  ${expand ? 'dynamic_index_ul_expand' : ''}`}>
         {
           dynamicIndex.map((item,idx) => {
             return (
-              <li id={item.id} className={`dynamic_index_li ${expand ? 'dynamic_index_ul_expand' : ''} ${(expand & item.second_level) ? 'dynamic_index_li_secondleve': ''} ${positionD === idx ? 'dynamic_index_li_selected': ''}` } onMouseEnter={() => expandIndex()}>
+              <li key={idx} id={item.id} className={`dynamic_index_li ${expand ? 'dynamic_index_ul_expand' : ''} ${(expand & item.second_level) ? 'dynamic_index_li_secondleve': ''} ${positionD === idx ? 'dynamic_index_li_selected': ''}` } onMouseEnter={() => expandIndex()}>
                 <a href={'#'+item.id} >{item.title}</a>
               </li>
             )

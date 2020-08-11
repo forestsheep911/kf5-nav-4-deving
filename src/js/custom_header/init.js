@@ -14,14 +14,21 @@ export const adjustCSApage = () => {
 
 /**
  * 对所有页面所调整迎合导航栏设计
+ * @param {Object} comp
  */
-export const adjustPages = () => {
+export const adjustPages = (comp) => {
   let userinfo_container = jQuery('#user_info_container');
   let kf5_orginal_userinfo = jQuery('.user-nav');
   kf5_orginal_userinfo.find('.user-info-name').css('color', 'black');
   userinfo_container.append(kf5_orginal_userinfo.eq(0));
 
+  
   jQuery('main').css('margin-top', '70px');
+
+  let is_login = (typeof kf5_orginal_userinfo.get(0).childNodes[0].nodeName === typeof document.createElement('a').nodeName) ? false : true;
+  comp.setState({
+    isLogin: is_login
+  })
 }
 
 /**

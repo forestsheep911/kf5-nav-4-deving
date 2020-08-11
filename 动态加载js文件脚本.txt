@@ -22,9 +22,10 @@
 
 document.getElementsByClassName('header')[0].children[0].style.display = 'none';
 document.getElementsByClassName('header')[0].id = 'header'
-loadScript("https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/cybozu_kf5_header_marge.bundle.js", function() { 
-      alert('动态引入js文件成功')
-});
+loadScript("file:///C:/Users/bxia/Desktop/kf5%E7%BD%91%E7%AB%99%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE/kf5-three-level-navigation-menu/dist/vendor_libarys.bundle.js");
+loadScript("file:///C:/Users/bxia/Desktop/kf5%E7%BD%91%E7%AB%99%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE/kf5-three-level-navigation-menu/dist/react_main.bundle.js");
+loadScript("file:///C:/Users/bxia/Desktop/kf5%E7%BD%91%E7%AB%99%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE/kf5-three-level-navigation-menu/dist/material_ui_core_main.bundle.js");
+loadScript("file:///C:/Users/bxia/Desktop/kf5%E7%BD%91%E7%AB%99%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE/kf5-three-level-navigation-menu/dist/cybozu_kf5_header.bundle.js");
 
 
     function loadScript(url, callback) {

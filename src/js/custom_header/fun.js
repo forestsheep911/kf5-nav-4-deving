@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {number} articles 
+ * @param {number} section_id 
+ */
 const saveCache = (articles, section_id) => {
   try {
       let storage_data = JSON.stringify({ 
@@ -9,6 +14,10 @@ const saveCache = (articles, section_id) => {
 
 };
 
+/**
+ * 
+ * @param {number} section_id 
+ */
 export const getArticlesBySection = (section_id) => {
   console.log('start geting articles list.......');
   let settings = {
@@ -41,6 +50,10 @@ export const getArticlesBySection = (section_id) => {
   });
 };
 
+/**
+ * 
+ * @param {number} section_id 
+ */
 export const getCacheArticles = (section_id) => {
   console.log('get cache data............');
   let articles_session_storage = (typeof window.sessionStorage !== 'undefined') ? JSON.parse(window.sessionStorage.getItem('s'+section_id)) : null;
@@ -55,6 +68,10 @@ export const getCacheArticles = (section_id) => {
   return articles;
 };
 
+/**
+ * 
+ * @param {number} article_id 
+ */
 export const getSectionIdByArticle = (article_id) => {
   console.log('start geting article info......');
   let settings = {
@@ -74,3 +91,4 @@ export const getSectionIdByArticle = (article_id) => {
   });
   
 }
+

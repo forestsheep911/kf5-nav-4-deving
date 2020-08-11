@@ -1,7 +1,7 @@
 import css from '../../css/custom_header.css';
 import React, { Component }from 'react';
 import {AppBar, Toolbar, IconButton, Link, Drawer, Hidden} from '@material-ui/core';
-import {withStyles,  withTheme} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import LanguageIcon from '@material-ui/icons/Language';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -11,90 +11,13 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import PropTypes from 'prop-types';
 import {adjustCSApage, adjustPages, initDataAtCategory, initDataAtSection, initDataAtArticle} from './init.js';
 import {catalogObject} from './catalog_structure.js';
+import {styles} from './style.js';
 
-const drawerWidth = 240;
 
 const catalogStateInfo = {
   type: 'other',
   num: 0
 };
-
-const styles = theme => ({
-  root: {
-      display: 'flex',
-  },
-  toolBar: {
-      minHeight: '56px',
-  },
-  drawer: {
-      flexShrink: 0,
-  },
-  drawer_none: {
-      display: 'none',
-  },
-  topBar: {
-      zIndex: theme.zIndex.drawer + 1,
-      backgroundColor: '#fff',
-      borderBottom: '1px solid #eee',
-  },
-  menuButton: {
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.up('md')]: {
-          display: 'none',
-      },
-  },
-  menuIcon: {
-      fontSize: '2.4rem'
-  },
-  aLink: {
-     color: '#000000',
-     fontSize: '1.6rem',
-  },
-  searchIcon: {
-      fontSize: '2.4rem'
-  },
-  drawerPaper: {
-      width:drawerWidth,
-      overflowY: 'auto !important',
-      marginTop: '55px',
-      '&::-webkit-scrollbar': {
-        width: '4px',
-        height: '4px',
-        backgroundColor: 'transparent',
-      },
-      '&::-webkit-scrollbar-track': {
-        backgroundColor: 'transparent',
-      },
-      '&::-webkit-scrollbar-thumb': {
-        borderRadius: '4px',
-        backgroundColor: 'transparent',
-      },
-      '&:hover::-webkit-scrollbar-track': {
-        backgroundColor: 'transparent',
-      },
-      '&:hover::-webkit-scrollbar-thumb': {
-        backgroundColor: '#c1c1c1',
-      }
-  },
-  drawerPaperMin: {   
-    width: drawerWidth,
-  },
-  titleMenu: {
-      display: 'inline-block',
-      paddingTop: '10px',
-      paddingBottom: '10px',
-      marginLeft: '15px',
-      marginRight: '15px',
-      borderBottom: '4px solid transparent',
-      transition: 'border .3s',
-      '&:hover': {
-          borderColor: '#47ACDD'
-      }
-  },
-  titleMenuActived: {
-    borderColor: '#47ACDD'
-  }
-});
 
 class KfiveCustomHeader extends Component {
   constructor(props) {
@@ -103,24 +26,19 @@ class KfiveCustomHeader extends Component {
       mobileOpen: false,
       needPermanent: false,
       catalog: catalogObject,
-      catalogState: catalogStateInfo
+      catalogState: catalogStateInfo,
+      isLogin: false
     };
   }
-
-  handleDrawerToggle() {
-    this.setState({
-      mobileOpen: true
-    });
-  };
 
   componentDidMount(){
     console.log('father has mounted..........');
 
     let page_type = 'other';
     // let current_url = parent.document.getElementById('preview_frame') ? parent.document.getElementById('preview_frame').contentWindow.location.href : window.location.href;
-    let current_url = 'https://cybozudev.kf5.com/hc/kb/category/27412/';
+    // let current_url = 'https://cybozudev.kf5.com/hc/kb/category/27412/';
     // let current_url = 'https://cybozudev.kf5.com/hc/kb/section/106246/';
-    // let current_url = 'https://cybozudev.kf5.com/hc/kb/article/205473/';
+    let current_url = 'https://cybozudev.kf5.com/hc/kb/article/1378683/';
  
     if(/(category|section|article)/.test(current_url)) {
       page_type = RegExp.$1;
@@ -132,9 +50,9 @@ class KfiveCustomHeader extends Component {
       });
     }
 
-    adjustPages();
+    adjustPages(this);
 
-    //initdata
+    //init tree state of three type of pages
     switch(page_type) {
       case 'category':
         initDataAtCategory(this, catalogObject, catalogStateInfo, current_url);
@@ -150,6 +68,12 @@ class KfiveCustomHeader extends Component {
     }
   }
 
+  handleDrawerToggle(){
+    this.setState(state =>({
+      mobileOpen: !state.mobileOpen
+    }))
+  }
+
   render() {
     const {classes} = this.props;
     return (
@@ -157,7 +81,7 @@ class KfiveCustomHeader extends Component {
         <ElevationScroll {...this.props}>
           <AppBar position="fixed" className={classes.topBar}>
             <Toolbar className={classes.toolBar}>
-              <IconButton style={{ color: '#000000' }} aira-label="open drawer" edg="start" onClick={()=>handleDrawerToggle()} className={classes.menuButton}>
+              <IconButton style={{ color: '#000000' }} aira-label="open drawer" edg="start" onClick={()=>this.handleDrawerToggle()} className={classes.menuButton}>
                 <MenuIcon className={classes.menuIcon}/>
               </IconButton>
 
@@ -185,16 +109,16 @@ class KfiveCustomHeader extends Component {
                 </Hidden>
               </div>
 
-              <IconButton aria-label="search" style={{ color: '#000000' }}>
+              <IconButton aria-label="search" title="检索内容" style={{ color: '#000000' }}>
                 <SearchIcon className={classes.searchIcon}/>
               </IconButton>
-              <IconButton aria-label="language" style={{ color: '#000000' }}>
+              <IconButton aria-label="language" title="切换语言" style={{ color: '#000000' }}>
                 <LanguageIcon className={classes.searchIcon}/>
               </IconButton>
-              <IconButton aria-label="user-login" style={{ color: '#000000' }}>
+              <IconButton aria-label="user-login" title="登录" style={{ color: '#000000', display: this.state.isLogin ? "none": "flex"}}>
                 <PersonOutlineIcon className={classes.searchIcon}/>
               </IconButton>
-              <div id="user_info_container">
+              <div id="user_info_container" style={{ display: this.state.isLogin ? " ": "none"}}>
               </div>
             </Toolbar>
           </AppBar>
@@ -202,11 +126,13 @@ class KfiveCustomHeader extends Component {
         <Hidden mdUp implementation="css">
          <Drawer 
           variant="temporary"
-          anchor={this.props.theme.direction == 'rtl' ? 'right' : 'left'}
-          onClose={() =>handleDrawerToggle()}
+          anchor={this.props.theme.direction !== 'rtl' ? 'right' : 'left'}
+          open={this.state.mobileOpen}
+          onClose={()=>this.handleDrawerToggle()}
           classes={{paper: classes.drawerPaperMin}}
           ModalProps={{keepMounted:true}}>
-            <CatalogDiv catalog={this.state.catalog} catalogState={this.state.catalogState}/>
+            <NestedList catalog={this.state.catalog} catalogState={this.state.catalogState}/>
+            {/* <CatalogDiv catalog={this.state.catalog} catalogState={this.state.catalogState} comp={this}/> */}
          </Drawer>
         </Hidden>
         <Hidden smDown implementation="css">
@@ -215,16 +141,12 @@ class KfiveCustomHeader extends Component {
             classes={{paper: classes.drawerPaper}}
             variant="permanent"
             open>
-              <CatalogDiv catalog={this.state.catalog} catalogState={this.state.catalogState}/>
+              <NestedList catalog={this.state.catalog} catalogState={this.state.catalogState}/>
           </Drawer>
         </Hidden>
       </div>
     )
   }
-}
-
-function CatalogDiv(catalog, catalogState) {
-  return <NestedList {...catalog} {...catalogState} />;
 }
 
 function ElevationScroll (props) {

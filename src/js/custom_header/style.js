@@ -36,7 +36,6 @@ export const styles = theme => ({
   drawerPaper: {
       width:drawerWidth,
       overflowY: 'auto !important',
-      marginTop: '55px',
       '&::-webkit-scrollbar': {
         width: '4px',
         height: '4px',

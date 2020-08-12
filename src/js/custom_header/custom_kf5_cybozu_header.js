@@ -5,6 +5,7 @@ import {withStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import LanguageIcon from '@material-ui/icons/Language';
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import NestedList from './nested_list';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
@@ -27,7 +28,9 @@ class KfiveCustomHeader extends Component {
       needPermanent: false,
       catalog: catalogObject,
       catalogState: catalogStateInfo,
-      isLogin: false
+      isLogin: false,
+      showLanguage: false,
+      showSearch: false
     };
   }
 
@@ -66,12 +69,63 @@ class KfiveCustomHeader extends Component {
       default:
         break;
     }
+
+    document.addEventListener('click', (e) => {
+      this.hideSearch();
+    });
   }
 
   handleDrawerToggle(){
     this.setState(state =>({
       mobileOpen: !state.mobileOpen
     }))
+  }
+
+  showLanguageBox(){
+    this.setState(state =>({
+      showLanguage: true
+    }))
+  }
+
+  hideLanguageBox(){
+    this.setState(state =>({
+      showLanguage: false
+    }))
+  }
+  
+  showSearch(e){
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    this.setState(state =>({
+      showSearch: true
+    }))
+  }
+
+  hideSearch(){
+    this.setState(state =>({
+      showSearch: false
+    }))
+  }
+
+  languageRedirect(type){
+    switch(type) {
+      case 'en':
+        window.open('https://developer.kintone.io/hc/en-us/');
+        break;
+      case 'jp':
+        window.open('https://developer.cybozu.io/hc/ja');
+        break;
+      default:
+        break;
+    }
+  }
+   
+  stop(e){
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();  
+  }
+  login(){
+    window.open('https://cybozudev.kf5.com/user/login/');
   }
 
   render() {
@@ -109,18 +163,36 @@ class KfiveCustomHeader extends Component {
                 </Hidden>
               </div>
 
-              <IconButton aria-label="search" title="检索内容" style={{ color: '#000000' }}>
+              <IconButton aria-label="search" title="检索内容" style={{ color: '#000000' }} onClick={(e)=>this.showSearch(e)}>
                 <SearchIcon className={classes.searchIcon}/>
               </IconButton>
-              <IconButton aria-label="language" title="切换语言" style={{ color: '#000000' }}>
-                <LanguageIcon className={classes.searchIcon}/>
+              <div>
+              <IconButton aria-label="language" title="切换语言" style={{ color: '#000000' }} onMouseOver={()=>this.showLanguageBox()} onMouseLeave={()=>this.hideLanguageBox()}>
+                <LanguageIcon className={classes.searchIcon} style={{ color: '#000000' }} />
               </IconButton>
-              <IconButton aria-label="user-login" title="登录" style={{ color: '#000000', display: this.state.isLogin ? "none": "flex"}}>
+              <div className={'cust_language_box' + (this.state.showLanguage ? ' cust_language_box_expand' : '')} onMouseOver={()=>this.showLanguageBox()} onMouseLeave={()=>this.hideLanguageBox()}>
+                <ul >
+                  <li style={{borderBottom: '#eee solid 1px'}} onClick={()=>this.languageRedirect('jp')}> <span>日本语</span></li>
+                  <li onClick={()=>this.languageRedirect('en')}><span>English</span></li>
+                </ul>
+              </div>
+              </div>
+              <IconButton aria-label="user-login" title="登录" style={{ color: '#000000', display: this.state.isLogin ? "none": "flex"}} onClick={()=>this.login()}>
                 <PersonOutlineIcon className={classes.searchIcon}/>
               </IconButton>
               <div id="user_info_container" style={{ display: this.state.isLogin ? " ": "none"}}>
               </div>
             </Toolbar>
+            <div className={'cust_search_box' + (this.state.showSearch ? ' cust_search_box_expand' : '')} onClick={(e)=>this.stop(e)}>
+              <form className={'cust_search_box_form' + (this.state.showSearch ? ' cust_search_box_form_expand' : '')} accept-charset="UTF-8" action="/hc/search/results/" method="get">
+                <div className={'cust_search_box_flex'}>
+                  <input id="search" name="keyword" placeholder="输入问题关键字，找到答案" type="search"/>
+                  <IconButton aria-label="close_search" title="关闭" onClick={()=>this.hideSearch()} style={{ color: '#000000' }} >
+                    <CloseIcon className={classes.searchIcon}/>
+                  </IconButton>
+                </div>
+              </form>
+            </div>
           </AppBar>
         </ElevationScroll>
         <Hidden mdUp implementation="css">
@@ -132,7 +204,6 @@ class KfiveCustomHeader extends Component {
           classes={{paper: classes.drawerPaperMin}}
           ModalProps={{keepMounted:true}}>
             <NestedList catalog={this.state.catalog} catalogState={this.state.catalogState}/>
-            {/* <CatalogDiv catalog={this.state.catalog} catalogState={this.state.catalogState} comp={this}/> */}
          </Drawer>
         </Hidden>
         <Hidden smDown implementation="css">
@@ -141,6 +212,7 @@ class KfiveCustomHeader extends Component {
             classes={{paper: classes.drawerPaper}}
             variant="permanent"
             open>
+              <Toolbar className={classes.toolBar}/>
               <NestedList catalog={this.state.catalog} catalogState={this.state.catalogState}/>
           </Drawer>
         </Hidden>

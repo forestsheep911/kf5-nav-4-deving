@@ -172,7 +172,7 @@ class KfiveCustomHeader extends Component {
               </IconButton>
               <div className={'cust_language_box' + (this.state.showLanguage ? ' cust_language_box_expand' : '')} onMouseOver={()=>this.showLanguageBox()} onMouseLeave={()=>this.hideLanguageBox()}>
                 <ul >
-                  <li style={{borderBottom: '#eee solid 1px'}} onClick={()=>this.languageRedirect('jp')}> <span>日本语</span></li>
+                  <li style={{borderBottom: '#eee solid 1px'}} onClick={()=>this.languageRedirect('jp')}> <span>日本語</span></li>
                   <li onClick={()=>this.languageRedirect('en')}><span>English</span></li>
                 </ul>
               </div>

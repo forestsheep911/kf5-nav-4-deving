@@ -24,7 +24,7 @@ var original_header = document.getElementsByClassName('header')[0];
 original_header.style.display = 'none';
 var new_header = document.createElement('div');
 new_header.setAttribute('id', 'header');
-original_header.insertBefore(new_header, original_header.nextSibling);
+document.body.insertBefore(new_header, original_header.nextSibling);
 loadScript("https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/vendor_libarys.bundle.js");
 loadScript("https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/react_main.bundle.js");
 loadScript("https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/material_ui_core_main.bundle.js");

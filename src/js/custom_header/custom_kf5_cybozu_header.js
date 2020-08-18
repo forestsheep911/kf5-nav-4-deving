@@ -11,6 +11,7 @@ import NestedList from './nested_list';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import PropTypes from 'prop-types';
 import {adjustCSApage, adjustPages, initDataAtCategory, initDataAtSection, initDataAtArticle} from './init.js';
+import {getArticles, getArticlesBySection} from './fun.js';
 import {catalogObject} from './catalog_structure.js';
 import {styles} from './style.js';
 import LanguageView from './language.js';
@@ -117,6 +118,10 @@ class KfiveCustomHeader extends Component {
     window.open('https://cybozudev.kf5.com/user/login/');
   }
 
+  handleSectionClick(category_id, section_id){
+    getArticles(this, category_id, section_id);
+  }
+  
   render() {
     const {classes} = this.props;
     return (
@@ -187,7 +192,7 @@ class KfiveCustomHeader extends Component {
           onClose={()=>this.handleDrawerToggle()}
           classes={{paper: classes.drawerPaperMin}}
           ModalProps={{keepMounted:true}}>
-            <NestedList catalog={this.state.catalog} catalogState={this.state.catalogState}/>
+            <NestedList catalog={this.state.catalog} catalogState={this.state.catalogState} sectionClick={(c,s)=>this.handleSectionClick(c,s)}/>
          </Drawer>
         </Hidden>
         <Hidden smDown implementation="css">
@@ -197,7 +202,7 @@ class KfiveCustomHeader extends Component {
             variant="permanent"
             open>
               <Toolbar className={classes.toolBar}/>
-              <NestedList catalog={this.state.catalog} catalogState={this.state.catalogState}/>
+              <NestedList catalog={this.state.catalog} catalogState={this.state.catalogState} sectionClick={(c,s)=>this.handleSectionClick(c,s)}/>
           </Drawer>
         </Hidden>
       </div>

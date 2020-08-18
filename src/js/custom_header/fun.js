@@ -92,3 +92,44 @@ export const getSectionIdByArticle = (article_id) => {
   
 }
 
+export const getArticles = (comp,category_id, section_id) => {
+  if(comp.state.catalog[category_id].sections[section_id].loading) {
+    return;
+  }
+
+  let new_catalog = {...comp.state.catalog};
+
+  if (new_catalog[category_id].sections[section_id].articles.length === 0)
+  {
+    let cache_articles = getCacheArticles(section_id);
+    if(cache_articles.length > 0)
+    {
+      new_catalog[category_id].sections[section_id].articles = cache_articles;
+      new_catalog[category_id].sections[section_id].open = true;
+      comp.setState({
+        catalog: {...new_catalog}
+      });
+    } else {
+      new_catalog[category_id].sections[section_id].loading = true;
+      new_catalog[category_id].sections[section_id].open = false;
+      comp.setState({
+        catalog: {...new_catalog}
+      });
+
+      getArticlesBySection(section_id).then(res => {
+        new_catalog[category_id].sections[section_id].open = true;
+        new_catalog[category_id].sections[section_id].articles = res;
+        new_catalog[category_id].sections[section_id].loading = false;
+        comp.setState({
+          catalog: {...new_catalog}
+        });
+      }, err => {});
+    }
+  } else {
+    new_catalog[category_id].sections[section_id].open = !new_catalog[category_id].sections[section_id].open;
+    comp.setState({
+      catalog: {...new_catalog}
+    });
+  }
+}
+

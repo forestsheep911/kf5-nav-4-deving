@@ -5,9 +5,7 @@
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
     "dev": "webpack-dev-server --config ./webpack.dev.config.js",
-    "build_three_leve_tree": "webpack --config ./webpack_header.config.js",
     "build_three_leve_tree_marge": "webpack --config ./webpack_header_marge.config.js",
-    "build_dynamic_index": "webpack --config ./webpack_index.config.js",
     "build_dynamic_index_marge": "webpack --config ./webpack_index_marge.config.js"
   },
   "keywords": [],

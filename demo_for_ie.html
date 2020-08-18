@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html dir="ltr" class="no-js ie ie6 lte7 lte8 lte9"><![endif]-->
+<!--[if IE 7 ]><html dir="ltr" class="no-js ie ie7 lte7 lte8 lte9"><![endif]-->
+<!--[if IE 8 ]><html dir="ltr" class="no-js ie ie8 lte8 lte9"><![endif]-->
+<!--[if IE 9 ]><html dir="ltr" class="no-js ie ie9 lte9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="cybozu,cybozu开发者网站,cybozu developer network,kintone,kintone api,kintone开发,kintone学习,云平台,模块化,云服务,API,javascript教程,salesforce中国"/><meta name="description" content="我们是cybozu developer network开发者网站，我们希望有更多的开发者能参与到未来的云计算时代的技术行列，也希望为广大开发者提供良好的在线交流云服务的空间。如果你对模块化的、拖拉式产品配置和开发有兴趣，如果你立志于投入云服务的技术领域，这里将提供给你详细的开发手册、难题解疑，让开发人员与时俱进！"/>    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="_csrf" value="TzJVbElDY2lJU3llWHFZZEJtTUVmVVpHN2V3NGhOc1asxcYhojww--O0Jk3zzwoV9lia54OMRSlqa-aXe4rnEw==">
+    <link rel="dns-prefetch" href="//assets-cdn.kf5.com" />
+    <link rel="dns-prefetch" href="//fs.kf5.com" />
+    <link rel="dns-prefetch" href="//im2-agent.kf5.com" />
+    <link rel="dns-prefetch" href="//im2-visitor.kf5.com" />
+    <link rel="dns-prefetch" href="//im2-api.kf5.com" />
+    <link rel="dns-prefetch" href="//www.yuntongxun.com" />
+    <link rel="stylesheet" type="text/css" href="./demo_resource/shCoreDefault.css" />
+<link rel="stylesheet" type="text/css" href="./demo_resource/theme_base.css" />
+<link rel="stylesheet" type="text/css" href="./demo_resource/theme_fonts.css" />
+<link rel="stylesheet" type="text/css" href="https://fs.kf5.com/generated/cssv2/style_acdf0905e94f9293ba3bb21d991144aa.css?v=f8ea455666a73d2f" />
+<link rel="stylesheet" type="text/css" href="https://fs.kf5.com/generated/cssv2/setting_acdf0905e94f9293ba3bb21d991144aa.css?v=f8ea455666a73d2f" />
+<style type="text/css">
+/*<![CDATA[*/
+
+		.article-header h2{
+			padding-right:0px;
+		}
+		.article-header .subscribe{
+			float:right;
+			position:relative;
+			top:0;
+		}
+		.article-header .edit{
+			float:right;
+			margin-right:10px;
+			height: 26px;
+			line-height: 26px;
+			padding: 0 10px;
+			background: #f3f3f3;
+			border-radius: 3px;
+			font-size: 14px;
+			font-weight: normal;
+			color: #4e4e4e;
+			text-decoration:none;
+		}
+		.article-header .edit:hover {
+		  border-color: #ced6d8;
+		  text-decoration: none;
+		}
+		.article-header .edit:active {
+		  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+		}
+		.next_prev_wrap{
+			overflow:hidden;
+		}
+		.next_prev_wrap .next,.next_prev_wrap .prev{
+			display: inline-block;
+			word-break: break-all;
+			white-space: nowrap;
+			max-width: 100%;
+			overflow: hidden;
+    		text-overflow: ellipsis;
+		}
+	
+/*]]>*/
+</style>
+<script type="text/javascript" src="./demo_resource/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="./demo_resource/jquery.form.js"></script>
+<script type="text/javascript" src="./demo_resource/jquery-ui.1.11.0.min.js"></script>
+<script type="text/javascript" src="./demo_resource/dialog.js"></script>
+<script type="text/javascript" src="./demo_resource/function.js"></script>
+<script type="text/javascript" src="./demo_resource/ueditor.config.js"></script>
+<script type="text/javascript" src="./demo_resource/ueditor.min.js"></script>
+<script type="text/javascript" src="./demo_resource/shCore.js"></script>
+<script type="text/javascript" src="./demo_resource/ueditor_insertimage_ui.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+$.ajaxSetup({
+        headers: {
+            "X-CSRF-Token": "TzJVbElDY2lJU3llWHFZZEJtTUVmVVpHN2V3NGhOc1asxcYhojww--O0Jk3zzwoV9lia54OMRSlqa-aXe4rnEw=="
+        }
+    })
+/*]]>*/
+</script>
+<title>用Kintone Portal Designer来设计门户 - cybozu - cybozu开发者网站</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/upload/23361/201608/57bd0b4a85f71_383.ico" />    <!--[if lt IE 9]>
+    <script type="text/javascript" src="//assets-cdn.kf5.com/help-center/js/vendor/html5.js"></script>
+    <script type="text/javascript">
+        (function() {
+            var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+            var i= e.length;
+            while (i--){
+                document.createElement(e[i]);
+            }
+        })();
+    </script>
+    <style type="text/css">
+        article,aside,dialog,footer,header,section,footer,nav,figure,menu { display:block;}
+    </style>
+    <![endif]-->
+    <!--请在这里编写顶部声明，将生成在页面head标签内-->
+<!-- Start of KF5 supportbox script -->
+<!-- End of KF5 supportbox script -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c84ea6d49690360ded1eef2457c9b8b8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript" src="
+https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/kf5.js"></script>
+<script type="text/javascript" src="
+https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/anchorlinks.js"></script>
+<link rel="stylesheet" type="text/css" href="https://js.cybozu.cn/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="
+https://cybozukf5.oss-cn-shanghai.aliyuncs.com/css/colorbox.css">
+<!--<link rel="stylesheet" type="text/css" href="https://gitee.com/cybozudev/zhcn/raw/master/css/colorbox.css">-->
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/system_scripts.js" type="text/javascript"></script>
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/fw/jquery.colorbox-min.js" type="text/javascript"></script>
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/image_viewer.js" type="text/javascript"></script></head>
+<body>
+	<div class="header"  id="header"></div>
+<div class="header"  style="display:none">
+    <header class="container" >
+        <div class="header-inner">
+            <h1 class="logo"><a href="/hc/" title="cybozu"><img src="https://fs.kf5.com/upload/23361/201609/57d644f573e8d_327.png" alt="" /></a></h1>
+            <div class="header-nav">
+                <div class="header-license">
+                    <div class="header-license-items">
+                        <a href="https://cybozudev.kf5.com/hc/kb/article/1307437/">免费申请开发者账号</a>
+                    </div>
+                </div>
+                <div class="header-language dropdown">
+                    <div class="header-language-items">
+                        <a href="#">
+                            <img style="vertical-align:middle" src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/images/language-earth1.png" width="20" height="20" alt="">中文
+                        </a>
+                    </div>
+                    <div class="header-language-items-2nd">
+                        <ul>
+                            <li>
+                                <a href="https://developer.cybozu.io/hc/ja" target="_blank"><img src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/images/language-earth.png" width="16" height="16" alt="">
+                                    <span class="category-name">日本語</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://developer.kintone.io/hc/en-us/" target="_blank"><img src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/images/language-earth.png" width="16" height="16" alt="">
+                                    <span class="category-name">English</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="user-nav clearfix">
+                    <div class="user-info dropdown">
+				<span class="msg-number">2</span>
+				<div class="dropdown-toggle"><img   class="user-info-avatar" src="https://fs.kf5.com/upload/23361/201902/5c64d07478616_491.png" onerror="this.src='/images/icons/admin.jpg'" />
+					<span class="user-info-name">
+						<!-- cybozu -->
+						<a>sdfs</a>
+					</span>
+				</div>
+				<div class="dropdown-panel">
+				<ul class="user-info-menu"><li><a href="/hc/message/index/">我的消息<span class="msg-num">2</span></a></li><li class="my-activities"><a href="/hc/request/listview/">我的提问</a></li><li class="agent-dashboard"><a href="/agent/">进入控制面板</a></li><li class="logout"><a href="/user/logout/">退出</a></li></ul></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<link rel="stylesheet" type="text/css" href="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/css/table_style.css">
+<main style="display:none;">
+    <header class="main-header" style="display:none;">
+        <div class="wrap">
+            <ul class="breadcrumbs"> <li> <a href="/hc/">首页</a></li> <li> <a href="/hc/kb/category/27415/">开发范例</a></li> <li> <a href="/hc/kb/section/106252/">自定义开发</a></li></ul>
+            <form accept-charset="UTF-8" action="/hc/search/results/" class="main-header-search" method="get" role="search">
+		  <label for="search"><input id="search" name="keyword" value="" placeholder="输入问题关键字，找到答案" type="search"><i class="icon-search"></i></label>
+		  <input type="submit" name="" value="搜索" />
+		</form>
+        </div>
+    </header>
+    <div class="content">
+        <div class="content-main">
+            <article class="article">
+                <header class="article-header">
+                    <h2>
+                        用Kintone Portal Designer来设计门户
+                        <a href="javascript:void(0);" class="subscribe" onclick="cancelSubscribe();">取消关注</a><a target="_blank" href="/agent/#/help-center/posts/1341616/edit" class="edit">编辑</a>
+                    </h2>
+                    <section class="article-header-info">
+                        <span class="author"><a href="/agent/#/users/6390926/" target="_blank">aki</a></span> • 
+                        <span>发表于：2019年12月26日 13:51:55</span>
+                         • <span>更新于：2020年06月28日 15:47:29</span>
+                    </section>
+                </header>
+                <div class="article-content">
+                    <div class="original-content"><h2>Index</h2><ul class="anchor-link list-paddingleft-2"><li><p><a href="#what-is-kintone-portal-designer">Kintone Portal Designer是什么</a></p></li><li><p><a href="#how-to-install">安装Kintone Portal Designer</a></p></li><li><p><a href="#features">Kintone Portal Designer的构成</a></p></li><li><p><a href="#load-template">导入模板</a></p></li><li><p><a href="#update-design">更改设计</a></p></li><li><p><a href="#export-design">导出模板</a></p></li><li><p><a href="#apply-to-all-users">应用到所有用户的环境</a></p></li><li><p><a href="#conclusion">总结</a></p></li><li><p><a href="#step8">相关链接</a></p></li></ul><h2>Kintone Portal Designer是什么</h2><p><a href="https://chrome.google.com/webstore/detail/kintone-portal-designer/kmedncknheiegbelfmcfdlpcpfbnklmo">Kintone Portal Designer</a>是为帮助您更加轻松地设计kintone门户的工具（Chrome扩展功能）。</p><h3>优点1: 只要HTML・CSS就可以设计门户</h3><p>只要使用HTML・CSS就可以简单地进行设计。而无需JavaScript的知识。</p><h3>优点2: 提供有模板和图标</h3><p>有多个模板可供选择，你只要在模板的基础上根据个人喜好进行修改，<br>无需从头开始写HTML・CSS。另外，为了您更加快速方便地进行设计，还提供<a href="https://github.com/kintone/portal-design-templates/tree/master/images/icons">50多种图标</a>。<br>另外，还有介绍如何进行门户自定义的文章供大家参考。<br><a href="https://cybozudev.kf5.com/hc/kb/article/1340005/">一起挑战一下kintone门户的自定义吧！</a></p><h3>优点3:设计的门户可以应用到所有用户的页面</h3><p>使用Kintone Portal Designer创建的设计可以导出为JavaScript文件。<br>只要把这个文件导入kintone，就能应用到所有用户的页面上了。<br><br><img src="https://files.kf5.com/attachments/download/23361/7858416/0015e0eb75bb8ebc3bb6b4b77de52d5/" alt="0015e0eb75bb8ebc3bb6b4b77de52d5"></p><p> </p><h2>安装Kintone Portal Designer</h2><ul class="list-paddingleft-2"><li><p><strong>安装Kintone Portal Designer</strong><br></p></li></ul><ol class="list-paddingleft-2" style="list-style-type:decimal;"><li><p>从<a href="https://github.com/kintone/portal-designer">此处</a>下载整个包，并解压。</p></li><li><p>找到文件夹中的extension.zip文件，继续将该文件解压。</p></li><li><p><span style="font-size:16px;">打开Chrom浏览器，如图所示打开扩展程序页面。</span><br></p><p><img src="https://files.kf5.com/attachments/download/23361/9513255/0015ef848aa404dd7342e89e1f6a84a/" width="860" alt="0015ef848aa404dd7342e89e1f6a84a"></p><p><br></p></li><li><p>点击右上方的开发者模式。<br><img src="https://files.kf5.com/attachments/download/23361/8086059/0015e4e274a9e215986243afa813b30/" alt="0015e4e274a9e215986243afa813b30"><br></p></li><li><p>点击[加载已解压的扩展程序]。<br><img src="https://files.kf5.com/attachments/download/23361/8086085/0015e4e27db361dac9c153c50afe36f/" alt="0015e4e27db361dac9c153c50afe36f"><br></p></li><li><p>找到步骤2中解压的文件夹下的disc文件夹<br><img src="https://files.kf5.com/attachments/download/23361/8086087/0015e4e27e5791366bae20af80a4bf0/" alt="0015e4e27e5791366bae20af80a4bf0"></p></li></ol><p><br></p><ul class="list-paddingleft-2"><li><p><strong>启动Kintone Portal Designer</strong><br>打开kintone的门户。<br>点击工具栏上的 Kintone Portal Designer按钮。<br><img src="https://files.kf5.com/attachments/download/23361/7911589/0015e1eab2238d0828042a74d87b36c/" alt="0015e1eab2238d0828042a74d87b36c"><br><br>启动Kintone Portal Designer。</p></li></ul><h2>Kintone Portal Designer的构成</h2><p>Kintone Portal Designer的页面构成如下：<br>由开启Kintone Portal Designer的状态开关按钮、HTML/CSS/JavaScript的编辑标签页、保存设计、导出、导入按钮组成。<br><img src="https://files.kf5.com/attachments/download/23361/7911674/0015e1ead90b646695fcfdc13474ef2/" alt="0015e1ead90b646695fcfdc13474ef2"></p><h2>导入模板</h2><ol class="list-paddingleft-2"><li><p><strong>导入模板</strong><br>点击“Import”按钮，点击“Import Sample Template”。<br><img src="https://developer.cybozu.io/hc/article_attachments/360035334712/import.png" alt="import.png" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"><br>将显示模板列表对话框，请选择“advanced-3tabs”，然后点击“Import”按钮。<br>将载入模板的HTML及CSS。<br><img src="https://developer.cybozu.io/hc/article_attachments/360035335712/template.png" alt="template.png" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"></p></li><li><p><strong>启用并保存</strong><br>点击Kintone Portal Designer左上角的状态开关按钮，启用”Design Portal“。<br>开启后，将在kintone中载入写在Kintone Portal Designer里的HTML・CSS等。点击”Save“按钮。<br><img src="https://developer.cybozu.io/hc/article_attachments/360035334792/activate.png" alt="有効化して保存します。" style="border-width:1px;border-style:solid;border-color:rgb(221,221,221);max-width:800px;vertical-align:middle;height:auto;"></p></li><li><p><strong>确认刚才设计的内容</strong><br>回到门户页面，加载页面。可以看到刚才的范例模板已生效。</p></li></ol><h2>更改设计</h2><p>试着改动一下范例模板”advanced-3tabs'.<br>选择HTML标签，将“Tab1”、“Tab2”、“Tab3”分别更改为“开发部”、“销售部”、“总务部”。<br><img src="https://files.kf5.com/attachments/download/23361/7914745/0015e1fbb2b5cd107d432266c59c5d1/" alt="0015e1fbb2b5cd107d432266c59c5d1"><br>回到门户，加载页面，可以看到标签的文字已经变了。<br><img src="https://files.kf5.com/attachments/download/23361/7914749/0015e1fbb510c61e20c9c6bac1618ba/" alt="0015e1fbb510c61e20c9c6bac1618ba"></p><h2>导出模板</h2><p>创建的设计可以导成JSON文件。<br>导出的文件可以再次导入到Kintone Portal Designer。</p><p>要导出设计时，点击<span style="font-size:16px;">“Export”按钮，选择“Export as JSON”。导出JSON文件。</span></p><p>要导入设计时，点击“Import”按钮，选择“Import JSON”。</p><h2>应用到所有用户的环境</h2><p>如要将设计应用到所有kintone用户的页面，需要将做成的设计导出到JavaScript文件。</p><ol class="list-paddingleft-2"><li><p><strong>导出JavaScript文件</strong><br>点击“Export”按钮，选择“Export as JavaScript (Desktop)”。<br>导出JavaScript文件。<br><img src="https://files.kf5.com/attachments/download/23361/7914822/0015e1fbeea5a8aa4856ac9c73046c7/" alt="0015e1fbeea5a8aa4856ac9c73046c7"></p></li><li><p><strong>关闭Kintone Portal Designer</strong><br>点击Kintone Portal Designer左上角的状态开关按钮，关闭“Default Portal”。<br>(如果在启用“Design Portal”的情况下导入JavaScript文件，Kintone Portal Designer的设计会与JavaScript文件的设计冲突)</p></li><li><p><strong>打开“通过JavaScript / CSS自定义”页面</strong><br>点击kintone的工具栏的设置按钮，依次点击“kintone系统管理”→“通过JavaScript / CSS自定义”。</p></li><li><p><strong>导入JavaScript文件</strong><br>点击“JavaScript文件（电脑专用）”栏的“通过上传添加”按钮，选择步骤1中导出的JavaScript文件。<br><img src="https://files.kf5.com/attachments/download/23361/7914929/0015e1fc3464b1afab2fd0e9cbd6fce/" alt="0015e1fc3464b1afab2fd0e9cbd6fce"></p></li><li><p><strong>隐藏门户的内容</strong><br>JavaScript文件生效后，原本门户上的内容会显示在所设计的门户下面。<br>要隐藏这些内容，可以在“门户的设置"页面取消勾选“在门户页面显示：”下的选项。<br><img src="https://files.kf5.com/attachments/download/23361/7914953/0015e1fc42bc91b60ebd4d168cbf7a2/" alt="0015e1fc42bc91b60ebd4d168cbf7a2"></p></li></ol><h2>总结</h2><p>综上所述，在Kintone Portal Designer上通过HTML・CSS可以轻而易举地对您的kintone门户进行设计。<br>今后，我们还将继续发布/介绍新的范例。尽情期待。</p><h2>相关链接</h2><ul class="list-paddingleft-2"><li><p><a href="https://blog.cybozu.io/entry/2019/07/10/080000">kintone的门户设计开发（Cybozu Inside Out）（日语）</a></p></li><li><p><a href="https://developer.cybozu.io/hc/ja/articles/360029783812">kintone 门户设计模板库</a>（日语）</p></li></ul><p class="operaCheck">此Tips在2019年07月版的 kintone中确认过。</p><p><br></p></div>
+                    <p class="next_prev_wrap"><a title="使用“kintone UI Component​”轻松创建kintone风格的UI组件" class="next" href="/hc/kb/article/1228393/">下一篇 使用“kintone UI Component​”轻松创建kintone风格的UI组件</a></p>
+                    
+                </div>
+                <footer class="article-footer">
+                    <ul class="share-list">
+                <li class="wechat"><div class="qr-box" data-url="https://cybozudev.kf5.com/hc/kb/article/1341616/"></div><a href="javascript:void(0);"><i class="icon-weixin"></i></a></li>
+                <li class="sina"><a href="http://service.weibo.com/share/share.php?url=https%3A%2F%2Fcybozudev.kf5.com%2Fhc%2Fkb%2Farticle%2F1341616%2F&title=%E3%80%90%E7%94%A8Kintone+Portal+Designer%E6%9D%A5%E8%AE%BE%E8%AE%A1%E9%97%A8%E6%88%B7%E3%80%91IndexKintonePortalDesigner%E6%98%AF%E4%BB%80%E4%B9%88....&appkey=&pic=&searchPic=false" target="_blank"><i class="icon-weibo"></i></a></li>
+                <li class="qq"><a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fcybozudev.kf5.com%2Fhc%2Fkb%2Farticle%2F1341616%2F&title=%E3%80%90%E7%94%A8Kintone+Portal+Designer%E6%9D%A5%E8%AE%BE%E8%AE%A1%E9%97%A8%E6%88%B7%E3%80%91IndexKintonePortalDesigner%E6%98%AF%E4%BB%80%E4%B9%88....&desc=&summary=%E3%80%90%E7%94%A8Kintone+Portal+Designer%E6%9D%A5%E8%AE%BE%E8%AE%A1%E9%97%A8%E6%88%B7%E3%80%91IndexKintonePortalDesigner%E6%98%AF%E4%BB%80%E4%B9%88....&site=&pics=" target="_blank"><i class="icon-qq"></i></a></li>
+            </ul>
+                </footer>
+            </article>
+            <div id="article-comments" class="article-comments">
+                
+                <ul class="article-comments-list"></ul>
+                
+                <div style="padding:10px 0 10px 76px;color:grey;">注意：贴代码时请注意格式并使用"代码语言"，与本文无关的问题请至“<a href="https://cybozudev.kf5.com/hc/community/topic/">讨论社区</a>”提问。</div>
+                <div class="comment-form" id="comment-form">
+				         <a href="/agent/#/users/6034857/" target="_blank"><img   class="article-comments-form-pic" src="https://fs.kf5.com/upload/23361/201902/5c64d07478616_491.png" onerror="this.src='/images/icons/admin.jpg'" /></a>
+                        <form action="" method="post">
+                            <textarea id="comment" class="ctt-cmteditor"></textarea>
+                            <input type="submit" name="" value="提交" onclick="return comment();" class="article-comments-form-submit" />
+                        </form>
+                    </div>
+            </div>
+        </div>
+        <div class="right" style="display:none;">
+            <div class="category-section category-27412">
+				<h2><a href="/hc/kb/category/27412/">开始</a></h2><ul><li class="section-106246"><h3><a href="/hc/kb/section/106246/" >Getting Started</a></h3></li><li class="section-1125834"><h3><a href="/hc/kb/section/1125834/" >kintone开发者账号</a></h3></li></ul></div><div class="category-section category-1018929">
+				<h2><a href="/hc/kb/category/1018929/">行业案例</a></h2><ul><li class="section-1074068"><h3><a href="/hc/kb/section/1074068/" >共通</a></h3></li></ul></div><div class="category-section category-27413">
+				<h2><a href="/hc/kb/category/27413/">教程</a></h2><ul><li class="section-106247"><h3><a href="/hc/kb/section/106247/" >kintone自定义概要</a></h3></li><li class="section-106248"><h3><a href="/hc/kb/section/106248/" >kintone API入门系列</a></h3></li><li class="section-1001894"><h3><a href="/hc/kb/section/1001894/" >kintone自定义的技巧</a></h3></li></ul></div><div class="category-section category-27414">
+				<h2><a href="/hc/kb/category/27414/">API文档和SDK</a></h2><ul><li class="section-106249"><h3><a href="/hc/kb/section/106249/" >kintone API指南</a></h3></li><li class="section-106250"><h3><a href="/hc/kb/section/106250/" >kintone REST API</a></h3></li><li class="section-106251"><h3><a href="/hc/kb/section/106251/" >kintone JavaScript API</a></h3></li><li class="section-1125808"><h3><a href="/hc/kb/section/1125808/" >cybozu User API</a></h3></li><li class="section-1000279"><h3><a href="/hc/kb/section/1000279/" >SDK / Tools</a></h3></li><li class="section-1000278"><h3><a href="/hc/kb/section/1000278/" >kintone 插件开发</a></h3></li><li class="section-1073865"><h3><a href="/hc/kb/section/1073865/" >cybozu.cn共通</a></h3></li></ul></div><div class="category-section category-27415">
+				<h2><a href="/hc/kb/category/27415/">开发范例</a></h2><ul><li class="section-106252"><h3><a href="/hc/kb/section/106252/" >自定义开发</a></h3></li><li class="section-1019421"><h3><a href="/hc/kb/section/1019421/" >第三方API整合</a></h3></li></ul></div><div class="category-section category-27416">
+				<h2><a href="/hc/kb/category/27416/">插件</a></h2><ul><li class="section-1073272"><h3><a href="/hc/kb/section/1073272/" >插件</a></h3></li></ul></div><div class="category-section category-27417">
+				<h2><a href="/hc/kb/category/27417/">工具</a></h2><ul><li class="section-106254"><h3><a href="/hc/kb/section/106254/" >开发工具</a></h3></li><li class="section-106255"><h3><a href="/hc/kb/section/106255/" >资源库</a></h3></li></ul></div><div class="category-section category-28043">
+				<h2><a href="/hc/kb/category/28043/">通知</a></h2><ul><li class="section-108673"><h3><a href="/hc/kb/section/108673/" >资讯动态</a></h3></li><li class="section-108672"><h3><a href="/hc/kb/section/108672/" >API更新信息</a></h3></li><li class="section-111587"><h3><a href="/hc/kb/section/111587/" >非公开（测试用）</a></h3></li></ul></div>
+        </div>
+        <div class="pagetop">
+            <a href="#"><img src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/images/backtop.png" alt=""></a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer-index" style="display:none;">
+    <div class="container">
+        <div class="stay">
+            <div class="about">
+                <div><a href="https://cybozudev.kf5.com/hc/kb/article/1242643/">联系我们</a></div>
+                <div><a href="https://www.cybozu.cn">关于我们</a></div>
+                <div><a href="https://cybozudev.kf5.com/hc/kb/article/202730" class="products-nav">使用协议</a></div>
+                <div><a href="https://www.cybozu.cn/terms/privacy/" class="company-nav">隐私政策</a></div>
+            </div>
+            <div class="weichat">
+                <div>微信公众号</div>
+                <div class="image">
+                    <a><img src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/images/qrcode_for_developer network - da.jpg" style="width:100px;"/></a>
+                </div>
+            </div>
+            <div class="gongan">
+                <div>
+                    <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010502000501">
+                        <img src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/images/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" style="vertical-align:middle;" />&nbsp;&nbsp;沪公网安备 31010502000501号
+                    </a>
+                    <a href="http://icp.chinaz.com/info?q=%E6%B2%AAICP%E5%A4%8710208523%E5%8F%B7">
+                        &nbsp;&nbsp;&nbsp;&nbsp;沪ICP备10208523号-2
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;© 2015 Cybozu, Inc.
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <div id="forum_comment_layer" class="pooup-bscrim" style="display:none;">
+        <div class="popup-mask"></div>
+        <div class="popup-box" style="z-index:10000;">
+            <header>
+                <h2>编辑回复</h2>
+                <a href="javascript:void(0);" class="close" onclick="hiddenLockLayer('#forum_comment_layer');"><i class="icon-uniE119"></i></a>
+            </header>
+            <div class="popup-content" style="height:248px;">
+                <div>
+                    <input type="hidden" value="0" id="forum_comment_id" name="forum_comment_id"/>
+                    <textarea id="forum_comment_content" class="wysiwyg"></textarea>
+                </div>
+            </div>
+            <footer>
+                <a href="javascript:void(0);" class="btn" onclick="updateForumComment();">提交</a>
+            </footer>
+        </div>
+    </div>
+
+
+<script type="text/javascript" src="./demo_resource/jquery.qrcode.min.js"></script>
+<script type="text/javascript" src="https://fs.kf5.com/generated/jsv2/application_acdf0905e94f9293ba3bb21d991144aa.js?v=f8ea455666a73d2f"></script>
+<script type="text/javascript" src="./demo_resource/ajaxupload.3.5.js"></script>
+<script type="text/javascript" src="./demo_resource/autosize.min.js"></script>
+<script type="text/javascript" src="./demo_resource/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+            $(".main-header-search").submit(function(){
+                if($("#search").val()==""){
+                    showNotice("请输入搜索的关键字",false);
+                    return false;
+                }
+            });
+        
+function delete_comment(i){
+		if(!confirm("确定要删除该回复吗？删除后无法恢复！")) return false;
+		$.post("/hc/kb/ajax/",{ method: "delete_comment", id: i}, function(data){
+			if(data == "success"){
+				$(".comment_"+i).remove();
+				if($(".entry-comment-list dl").length < 1) 
+					$(".entry-comment").hide();
+			}else{
+				showNotice("删除失败！", false);
+			}
+		});
+	}
+	
+
+
+	//关注该文档
+	function subscribe(){
+		$.post("/hc/kb/ajax/",{ method: "subscribe",posts_id:1341616}, function(data){
+			if(data == "success"){
+				$(".subscribe").attr("onclick","cancelSubscribe()").html("取消关注");
+				$(".edit").addClass("long_edit");
+				showNotice("成功关注该文档");
+			}else{
+				showNotice("关注失败", false);
+			}
+		});
+	}
+
+	//对该文档取消关注
+	function cancelSubscribe(){
+		$.post("/hc/kb/ajax/",{ method: "cancel_subscribe",posts_id:1341616}, function(data){
+			if(data == "success"){
+				$(".subscribe").attr("onclick","subscribe()").html("关注");
+				$(".edit").removeClass("long_edit");
+				showNotice("成功取消关注该文档");
+			}else{
+			    showNotice("Unsubscribed problem occurred!");
+			}
+		});
+	}
+
+	//对该文档进行投票
+	function vote(){
+		$("#vote").removeAttr("onclick");
+		$.post("/hc/kb/ajax/",{method: "vote",posts_id:1341616}, function(data){
+			if(data == "success"){
+				$("#vote").html("<i class=\"icon-thumb-up\"></i>投票成功！");
+				var num = $("#vote_count").html();
+				num++;
+				$("#vote_count").html(num);
+			}else if(data == "fail"){
+				$("#vote").html("<i class=\"icon-thumb-up\"></i>已投票");
+			}else{
+				showNotice("投票失败，请稍后再试！", false);
+			}
+		});
+	}
+
+	
+
+
+		//实例化编辑器
+		var editor = new UE.ui.Editor({toolbars:[['bold', 'italic', 'underline', 'strikethrough', 'insertorderedlist', 'insertunorderedlist','pasteplain', 'forecolor', 'backcolor', 
+	'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', 'insertcode', 'link', 'unlink']],
+	imageUrl:'/posts/ueupload',imagePath:'',imageManagerUrl:'/posts/ueimagemanage',imageManagerPath:'',
+	initialContent:'',wordCount:false,autoHeightEnabled:true,retainOnlyLabelPasted:true,elementPathEnabled:false,
+	initialFrameWidth:'100%', initialFrameHeight:170,
+	lang:'zh-cn',
+	minFrameWidth:500, minFrameHeight:60 });
+		editor.render("comment");
+		
+		var commentEditor=UE.getEditor("comment");
+
+        //引用一条回复
+		function quote_comment(i){
+		    var comment=$("#comment_"+i);
+			var content=comment.find(".article-comments-item-content").html();
+			content=$("<div>"+content+"<div>");
+			content.find("blockquote").remove();
+			content=content.text();
+			content = filter_html(content);
+			var user=comment.find(".author").html();
+			//UE.getEditor("comment").setContent("<div class=\"quote\"><span class=\"quote_info\">引用 "+user+" 的回复</span>"+comment+"</div><br>");
+			commentEditor.setContent("<br /><blockquote style=\"margin:8px 0 10px 0; padding-left: 10px; border-left: 2px solid #21d376; \"><p style=\"font-size: 14px; color: #777; margin-bottom: 0px; font-family:微软雅黑; \">引用 "+user+" 的回复：</p><p style=\"font-family:微软雅黑;\">"+content+"</p></blockquote>");
+			commentEditor.focus();
+		}
+		
+		function filter_html(html){
+			if (html.length == 0) return "";
+			s = html.replace(/&/g, "&amp;");
+			s = s.replace(/</g,"&lt;");
+			s = s.replace(/>/g,"&gt;");
+			s = s.replace(/\"/g,"&quot;");
+			return s;
+		}
+
+		var requestControl = {
+			ing: false
+		};
+		requestControl.start = function(){
+			requestControl.ing = true;
+		};
+		requestControl.end = function(){
+
+		};
+
+		//请求控制
+		function RequestControl(options){
+			this.ing = false;
+			this.button = $("");
+			this.hint = "提交中...";
+			$.extend(this, options);
+			if(typeof this.button == "string"){
+				this.button = $(this.button);
+			}
+			this.setButtonText = function(){
+				if(this.button.length && this.hint){
+					if($.inArray(this.button[0].tagName.toLowerCase(), ["input","button"]) != -1){
+						this.button.attr("data-requestcontrol-text", this.button.val());
+						this.button.val(this.hint);
+					}else{
+						this.button.attr("data-requestcontrol-text", this.button.html());
+						this.button.html(this.hint);
+					}
+				}
+			};
+			this.resetButtonText = function(){
+				if(this.button.length && this.hint){
+					if($.inArray(this.button[0].tagName.toLowerCase(), ["input","button"]) != -1){
+						this.button.val(this.button.attr("data-requestcontrol-text"));
+					}else{
+						this.button.html(this.button.attr("data-requestcontrol-text"));
+					}
+				}
+			};
+			this.start = function(){
+				if(this.ing){
+					return false;
+				}else{
+					this.ing = true;
+					this.button.attr("disabled", "disabled");
+					this.setButtonText();
+					return true;
+				}
+			};
+			this.end = function(){
+				this.ing = false;
+				this.button.removeAttr();
+				this.resetButtonText();
+			};
+		}
+		var c_request = new RequestControl({button:".article-comments-form-submit"});
+
+        //提交回复
+		function comment(){
+			var comment = editor.getContent();
+			var tokens = "";
+			$(".kf5-upload-success .token").each(function(){
+				tokens += $(this).val()+",";
+			});
+			if(comment.length<3){
+				showNotice("回复内容太短，需大于3个汉字！", false);
+				return false;
+			}
+			if(!c_request.start()){
+				return false;
+			}
+			$.post("/hc/kb/ajax/",{ method: "new_comment",posts_id:1341616 , content:comment,tokens:tokens }, function(data){
+				if(data != "fail"){
+				    window.location.href="/hc/kb/article/1341616/?page=1&unique=1593669683#article-comments";
+				}else{
+					c_request.end();
+					showNotice("回复失败，请稍后重试！", false);
+				}
+			});
+			return false;
+		}
+
+	
+
+var paginationEl=$(".pagination");
+var commentListEl=$(".article-comments-list");
+paginationEl.find("a").live("click",function(){
+    var that=$(this);
+     $.get(that.attr("href"),function(html){
+        html=$(html);
+        var pageHtml=html.find(".pagination").html();
+        var commentListHtml=html.find(".article-comments-list").html();
+        paginationEl.html(pageHtml);
+        commentListEl.html(commentListHtml);
+        window.location.href="https://cybozudev.kf5.com/hc/kb/article/1341616/#article-comments";
+     });
+     return false;
+});
+//点击空白处，隐藏微信分享二维码
+$(".share-list .wechat,.share-list .wechat *").attr("data-type","share-weixin");
+$("body").click(function(event){
+    if($(event.target).attr("data-type")!="share-weixin"){
+        $(".wechat .qr-box").animate({opacity:0},400,function(){
+            $(this).attr("style","display:none");
+        });
+    }
+});
+$(".qr-box").each(function(){
+	$(this).qrcode({render:"canvas", width:130, height:130, text:$(this).attr("data-url")})
+});
+$.post("/hc/kb/viewCount/", {"post_id": "1341616"}, function(){});
+
+
+(function() {
+    if (document.getElementsByTagName("video").length) {
+        var script = document.createElement("script");
+        script.src = "https://api.html5media.info/1.1.8/html5media.min.js";
+        script.onload = function() {
+            html5media();
+        };
+        document.body.appendChild(script);
+    }
+})();
+		
+
+
+//渲染编辑器
+var forum_comment_editor = new UE.ui.Editor({toolbars:[['bold', 'italic', 'underline', 'strikethrough', 'insertorderedlist', 'insertunorderedlist','pasteplain', 'forecolor', 'backcolor', 
+	'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', 'insertcode', 'link', 'unlink']],
+	imageUrl:'/posts/ueupload',imagePath:'',imageManagerUrl:'/posts/ueimagemanage',imageManagerPath:'',
+	initialContent:'',wordCount:false,autoHeightEnabled:true,retainOnlyLabelPasted:true,elementPathEnabled:false,
+	initialFrameWidth:'100%', initialFrameHeight:200,
+	lang:'zh-cn',
+	minFrameWidth:500, minFrameHeight:60 });
+forum_comment_editor.render("forum_comment_content");
+
+//编辑一条评论，显示编辑浮层
+function editForumComment(id){
+	$("#forum_comment_id").val(id);
+	forum_comment_editor.setContent($("#comment_"+id+" .article-comments-item-content").html());
+	showLockLayer("#forum_comment_layer, .popup-overlay");
+}
+
+//提交对评论的编辑结果
+function updateForumComment(){
+	var html = forum_comment_editor.getContent();
+	if(html.length<3){
+		showNotice("回复内容太短，需大于3个汉字！", false);
+		return false;
+	}
+	$.post("/hc/kb/ajax/",{method:"update_comment",id:$("#forum_comment_id").val(),content:html},function(data){
+		if(data == "success"){
+			window.location.reload();
+		}else{
+			showNotice("更新失败！", false);
+		}
+	});
+}
+
+
+
+		$("#search").keyup(function(){
+			$.get("/posts/matchkeyword/",{keyword:$("#search").val()},function(data){
+				if(data){
+					$("#search-match-list").html(data).show();
+				}else{
+					$("#search-match-list").hide();
+				}
+			});
+		});
+
+		function selectKeyword(obj){
+			$("#search").val(obj.text());
+			post_search(1);
+		}
+
+		function post_search(){
+			$("#search-match-list").hide();
+			$("#forum-search-form").submit();
+		}
+	
+
+
+	SyntaxHighlighter.all();
+
+	$("body").click(function(event){
+		if($(event.target).data("type") != "select"){
+			$(".js-select .options-ul").hide();
+		}
+	});
+	
+    function set_language(lang){
+        $.post("/user/changelanguage/",{type:"change_language",language:lang,url:"/hc/kb/article/1341616/"},function(res){
+        	if(!res.error){
+        		window.location.href = res.url;
+        	}
+        });
+    }
+
+	//页面初始时的纵向滚动条样式
+	window.htmlInitScrollStyle = "";
+
+	//隐藏页面的纵向滚动条
+    function hiddenHtmlScroll(){
+    	window.htmlInitScrollStyle = $("html").css("overflow-y");
+    	$("html").css("overflow-y", "hidden");
+    }
+
+	//显示页面的纵向滚动条
+	function showHtmlScroll(){
+		if(window.htmlInitScrollStyle){
+			$("html").css("overflow-y", window.htmlInitScrollStyle)
+		}
+	}
+
+	//显示一个页面遮罩层
+	function showLockLayer(queryString){
+		if(queryString != undefined){
+			$(queryString).show();
+		}
+		hiddenHtmlScroll();
+	}
+
+	//隐藏一个页面遮罩层
+	function hiddenLockLayer(queryString){
+		if(queryString != undefined){
+			$(queryString).hide();
+		}
+		showHtmlScroll();
+	}
+	
+	function question_pop() {
+        var answer_btn = $(".answer");
+        answer_btn.live("click",function(event) {
+            $(this).parents(".question-comment-item-bottom").toggleClass("show");
+        });
+    }
+    question_pop();
+
+    function js_select() {
+        var select = $(".js-select");
+        var title = $(".js-select").find(".title");
+        var box = $(".js-select").find("ul");
+        var item = box.find("a");
+        title.click(function() {
+            box.not($(this).siblings("ul")).hide();
+            $(this).next("ul").fadeToggle(200);
+        });
+        select.each(function(){
+            var oriSelect = $(this).parent().find("select");
+            if(oriSelect.length){
+                var oriSelectId = oriSelect.attr("id");
+                if(oriSelectId){
+                    var oriSelectIdStrArr=oriSelectId.split("_");
+                    if(oriSelectIdStrArr.length==2){
+                        oriSelect.attr("name", oriSelectIdStrArr[0]+"["+oriSelectIdStrArr[1]+"]");
+                    }
+                    if(oriSelectIdStrArr.length==3){
+                        oriSelect.attr("name", oriSelectIdStrArr[0]+"["+oriSelectIdStrArr[1]+"_"+oriSelectIdStrArr[2]+"]");
+                    }
+                    var oriSelectVal=oriSelect.val();
+                    var oriSelectValIndex=0;
+                    oriSelect.find("option").each(function(){
+                        if($(this).attr("value")==oriSelectVal){
+                            oriSelectValIndex=$(this).index();
+                        }
+                    });
+                    $(this).find("ul li").eq(oriSelectValIndex).addClass("active");
+					var panel = $("#panel_"+oriSelectId);
+					if(panel.length && oriSelect.val()){
+						panel.find(".form-section").hide();
+						panel.find("[cascade_value=\""+oriSelect.val()+"\"]").parent().show();
+					}
+                }
+            }
+        });
+        item.click(function(event) {
+			var option = $(this).html();
+			$(this).parents("li").addClass("active").siblings().removeClass("active")
+            $(this).parents(".js-select").find(".title").html(option);
+            $(this).parents("ul").fadeOut(200);
+            var index=$(this).parent().index();
+            var oriSelect=$(this).parent().parent().parent().parent().find("select");
+            if(oriSelect.length){
+				var optionItem=oriSelect.find("option").eq(index);
+				oriSelect.find("option").removeAttr("selected");
+				optionItem.attr("selected", "selected");
+				oriSelect.val(optionItem.attr("value"));
+				if(oriSelect.attr("id")){
+					var panel=$("#panel_"+oriSelect.attr("id"));
+					if(panel.length){
+						var val=oriSelect.val();
+						if(val){
+							panel.find(".form-section").hide();
+							panel.find("[cascade_value=\""+val+"\"]").parent().show();
+							panel.show();
+						}else{
+							panel.hide();
+						}
+					}
+				}
+			}
+        });
+    }
+    js_select();
+
+    function tip() {
+		var js_tip = $(".tooltip");
+		js_tip.hover(function() {
+			var text = $(this).attr("title");
+			var w = $(this).innerWidth();
+			var h = $(this).innerHeight();
+			var x = $(this).offset().left;
+			var y = $(this).offset().top;
+			$(this).attr("title", "");
+			var $tip_main = $("<div class=\"tip-main\"></div>").appendTo("body").html("<i></i>" + text);
+			var t_w = $tip_main.innerWidth();
+			$tip_main.fadeIn(400).css({
+                left: x - (t_w / 2) + (w / 2),
+                top: h + y + 10
+            });
+        }, function() {
+			var text = $(".tip-main:last").text(); //注意是最后一个对象的原因
+			$(this).attr("title", text);
+			$(".tip-main").fadeOut(100, function() {
+				$(this).remove();
+			});
+		});
+	}
+    tip();
+
+    $(".wechat").click(function(){
+		$(this).find(".qr-box").fadeToggle(400);
+	})
+
+    $(document).ready(function() {
+		$(".js-scroll-fixed").scrollToFixed({ marginTop: 10});
+    });
+
+    autosize($("textarea"));
+    
+	var user_id = parseInt("6034857");
+	
+	var setNewMessageCount = function(count){
+		count = parseInt(count);
+		if(count){
+			if(!$(".user-info .msg-number").length){
+				var msgNumber = $("<span class=\"msg-number\">0</span>");
+				msgNumber.hide();
+				msgNumber.prependTo(".user-nav .user-info");
+				var msgNumber2 = $("<span class=\"msg-num\">0</span>");
+				msgNumber2.hide();
+				msgNumber2.appendTo(".user-info-menu li:eq(0) a");
+				var msgNumber3 = $("<span></span>");
+				msgNumber3.hide();
+				msgNumber3.appendTo(".user-center-nav li:eq(0) a");
+			}
+			$(".user-info .msg-number").html(count).show();
+			$(".user-center-nav li span").html(count).show();
+			$(".user-info-menu .msg-num").html(count).show();
+		}else{
+			$(".user-info .msg-number").hide();
+			$(".user-center-nav li span").hide();
+			$(".user-info-menu .msg-num").hide();
+		}
+	};
+	
+	if(user_id){
+		setInterval(function(){
+			$.get("/hc/message/count/", function(res){
+				setNewMessageCount(res.newCount);
+			});
+		}, 10000);
+	}
+
+
+/*]]>*/
+</script>
+
+
+<div id ="dynamic_index" style="width:0px;height:0px;"></div>
+<script src="./dist/vendor_libarys.bundle.js" type="text/javascript" ></script>
+<script src="./dist/react_main.bundle.js" type="text/javascript" ></script>
+<script src="./dist/material_ui_core_main.bundle.js" type="text/javascript" ></script>
+<script src="./dist/cybozu_kf5_header.bundle.js" type="text/javascript" ></script>
+<!-- <script src="./dist/dynamic_index.bundle.js" type="text/javascript" ></script> -->
+
+</body>
+</html>

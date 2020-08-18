@@ -13,9 +13,7 @@ import {getCacheArticles, getArticlesBySection} from './fun.js';
 
 
 function NestedList(props) {
-  const {classes, catalogState} = props;
-  const [catalog, updateCatalog] = React.useState(props.catalog);
-  // const [catalogState] = React.useState(props.catalogState);
+  const {classes, catalog, catalogState, sectionClick} = props;
   const domRef = React.useRef();
 
 
@@ -25,39 +23,6 @@ function NestedList(props) {
       domRef.current.scrollIntoView();
     }
   },[props.catalogState]);
-
-  const handleSectionClick = (category_id, section_id) => {
-    if(catalog[category_id].sections[section_id].loading) {
-      return;
-    }
-
-    let new_catalog = {...catalog};
-
-    if (catalog[category_id].sections[section_id].articles.length === 0)
-    {
-      let cache_articles = getCacheArticles(section_id);
-      if (cache_articles.length > 0)
-      {
-        new_catalog[category_id].sections[section_id].articles = cache_articles;
-        new_catalog[category_id].sections[section_id].open = true;
-        updateCatalog({...new_catalog});
-      } else {
-        new_catalog[category_id].sections[section_id].loading = true;
-        new_catalog[category_id].sections[section_id].open = false;
-        updateCatalog({...new_catalog});
-
-        getArticlesBySection(section_id).then(res => {
-          new_catalog[category_id].sections[section_id].open = true;
-          new_catalog[category_id].sections[section_id].articles = res;
-          new_catalog[category_id].sections[section_id].loading = false;
-          updateCatalog({...new_catalog});
-        }, err => {});
-      } 
-    } else {
-      new_catalog[category_id].sections[section_id].open = !catalog[category_id].sections[section_id].open;
-      updateCatalog({...new_catalog});
-    } 
-  }
 
   const sectionElem = (loading, open) => {
     if (loading) {
@@ -92,7 +57,7 @@ function NestedList(props) {
               if(catalogState['type'] == 'section' && section['id'] == catalogState['num']) {
                 sub_list.push(
                   <RootRef key={s_idx} rootRef={domRef}>
-                    <ListItemLink  href="#" onClick={() => handleSectionClick(c_idx, section['id'])} selected={true}>
+                    <ListItemLink  href="#" onClick={() => sectionClick(c_idx, section['id'])} selected={true}>
                       <ListItemText primary={section['title']} classes={{ primary: classes.textPrimary }}/> 
                       {sectionElem(section['loading'], section['open'])} 
                     </ListItemLink>
@@ -100,7 +65,7 @@ function NestedList(props) {
                 )
               } else {
                 sub_list.push(
-                  <ListItemLink  key={s_idx} href="#" onClick={() => handleSectionClick(c_idx, section['id'])} >
+                  <ListItemLink  key={s_idx} href="#" onClick={() => sectionClick(c_idx, section['id'])} >
                     <ListItemText primary={section['title']} classes={{ primary: classes.textPrimary }}/> 
                     {sectionElem(section['loading'], section['open'])} 
                   </ListItemLink>

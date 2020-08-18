@@ -22,12 +22,9 @@ export const adjustPages = (comp) => {
   kf5_orginal_userinfo.find('.user-info-name').css('color', 'black');
   let is_login = (kf5_orginal_userinfo.find('.user-info-name').get(0).childNodes[0].nodeName === document.createElement('a').nodeName) ? false : true;
   userinfo_container.append(kf5_orginal_userinfo.eq(0));
-
   
   jQuery('main').css('margin-top', '70px');
-
   
-  // console.log(is_login);
   comp.setState({
     isLogin: is_login
   })

@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config ./webpack.config.js",
+    "dev": "webpack-dev-server --config ./webpack.dev.config.js",
     "build_three_leve_tree": "webpack --config ./webpack_header.config.js",
     "build_three_leve_tree_marge": "webpack --config ./webpack_header_marge.config.js",
     "build_dynamic_index": "webpack --config ./webpack_index.config.js",
@@ -24,7 +24,9 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "html-webpack-plugin": "^4.3.0"
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.10.3",

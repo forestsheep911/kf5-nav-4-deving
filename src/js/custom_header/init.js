@@ -7,9 +7,6 @@ import {getSectionIdByArticle, getCacheArticles, getArticlesBySection} from './f
 export const adjustCSApage = () => {
   jQuery('main').children().addClass('cust_content');
   jQuery('footer').children().addClass('cust_content');
-
-  jQuery('main').show();
-  jQuery('footer').show();
 }
 
 /**
@@ -17,6 +14,9 @@ export const adjustCSApage = () => {
  * @param {Object} comp
  */
 export const adjustPages = (comp) => {
+  jQuery('main').show();
+  jQuery('footer').show();
+
   let userinfo_container = jQuery('#user_info_container');
   let kf5_orginal_userinfo = jQuery('.user-nav');
   kf5_orginal_userinfo.find('.user-info-name').css('color', 'black');

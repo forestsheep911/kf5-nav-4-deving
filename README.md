@@ -7,53 +7,47 @@
 * 三层目录 https://github.com/cybozu-private/kf5-three-level-navigation-menu/tree/master/src/js/custom_header
 
 * 动态索引  https://github.com/cybozu-private/kf5-three-level-navigation-menu/tree/master/src/js/dynamic_index
-### 目录说明
-* /demo_resource <br/>
-demo.html 和 demo_dynamic_index.html 用到一些现有kf5网站应用的js和css文件，目的是在开发调试过程中，可以最真实的还原kf5网站原效果。
 
-* /dist <br/>
-完整项目打包后的资源文件，将存放在该目录下。
-构建命令：[npm run build] 生成分隔的资源文件， 除了“common_react.bundle.js”其它都需要被页面引用
+# 工程化配置
 
-* /dist/header <br/>
-三层目录结构项目打包后的资源文件， 将存放在该目录下。
-构建命令: [npm run build_three_leve_tree_marge] 生成一个文件，所有代码都在一起。
-构建命令：[npm run build_three_leve_tree] 生成分隔的资源文件。
+### 持续的、自动化打包、自带webserver的、开发环境配置
 
-* /dist/index <br/>
-动态索引项目打包后的资源文件， 将存放在该目录下。
-构建命令: [npm run build_dynamic_index_marge] 生成一个文件，所有代码都在一起。
-构建命令：[npm run build_dynamic_index] 生成分隔的资源文件。
+* 在本地开发环境机器上，提前安装好node.js运行环境。（保持最新稳定版）
+* 将本github资源库整体，下载到本地机器上。
+* 使用cli工具，移动到源码根目录
+* 生成npm配饰文件\[package.json\] (文件仓库内已包含)
+```
+\\自建新环境
+npm init //生成
+\\本仓库跳过这步
 
-* /resources <br/>
-README.md 所有素材存放在该目录下。
+```
+* 安装开发环境依赖库
 
-* /src/css <br/>
-所有项目 css文件， 存放在该目录下。
+```
+\\自建新环境
+npm -i webpack, webpack-cli, webpack-dev-server, html-webpack-plugin
+\\使用本仓库package.json
+npm -i
+```
+* 创建&配置webpack配置文件 （本仓库已存在写好的配置文件\[webpack.dev.config.js\]）
 
-* /src/js <br/>
-一般有需要对整个项目有公共库后者函数提取，在该目录下创建JS文件， 参考common_rect.js文件。
+* package.json文件内添加npm脚本 （本仓库已写好）
+```
+"scripts": {
+    ....
+    "dev": "webpack-dev-server --config ./webpack.dev.config.js",
+    ....
+}
+```
+* 命令行控制台运行如果下
+```
+npm run dev
+```
 
-* /src/js/custom_header <br/>
-三层目录 项目源码文件位置
+* 完成以上步骤后，本地会启动一个服务器，访问地址是http://localhost:8080/
+之后，当修改原代码保存后，webpack会自动打包，并刷新网址，使用最新编译好的代码。
 
-* /src/js/dynamic_index <br/>
-动态索引 项目源码文件位置
-
-* /src/js/util <br/>
-通用函数
-
-
-### 如何继续开发和构建 
-
-本仓库代码都基于react框架开发. webpack 打包代码。
-
-* 在本地开发环境机器上提前安装好node.js运行环境.
-* 将本github资源库整体下载到本地开发环境机器上.
-* 使用命令行工具，移动到源码根目录运行以下命令
-* npm install (这个命令只需要在初次构建运行，作用是根据package.json的第3方库依赖关系，下载依赖库。)
-* 修改代码
-* 使用package.json 预先写好的相应 [build] 命令，构建打包代码。
 
 
 

@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import {adjustCSApage, adjustPages, initDataAtCategory, initDataAtSection, initDataAtArticle} from './init.js';
 import {catalogObject} from './catalog_structure.js';
 import {styles} from './style.js';
+import LanguageView from './language.js';
 
 
 const catalogStateInfo = {
@@ -26,8 +27,8 @@ class KfiveCustomHeader extends Component {
     this.state = {
       mobileOpen: false,
       needPermanent: false,
-      catalog: catalogObject,
-      catalogState: catalogStateInfo,
+      catalog: {...catalogObject},
+      catalogState: {...catalogStateInfo},
       isLogin: false,
       showLanguage: false,
       showSearch: false
@@ -106,24 +107,12 @@ class KfiveCustomHeader extends Component {
       showSearch: false
     }))
   }
-
-  languageRedirect(type){
-    switch(type) {
-      case 'en':
-        window.open('https://developer.kintone.io/hc/en-us/');
-        break;
-      case 'jp':
-        window.open('https://developer.cybozu.io/hc/ja');
-        break;
-      default:
-        break;
-    }
-  }
    
   stop(e){
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();  
   }
+
   login(){
     window.open('https://cybozudev.kf5.com/user/login/');
   }
@@ -167,15 +156,10 @@ class KfiveCustomHeader extends Component {
                 <SearchIcon className={classes.searchIcon}/>
               </IconButton>
               <div>
-              <IconButton aria-label="language" title="切换语言" style={{ color: '#000000' }} onMouseOver={()=>this.showLanguageBox()} onMouseLeave={()=>this.hideLanguageBox()}>
-                <LanguageIcon className={classes.searchIcon} style={{ color: '#000000' }} />
-              </IconButton>
-              <div className={'cust_language_box' + (this.state.showLanguage ? ' cust_language_box_expand' : '')} onMouseOver={()=>this.showLanguageBox()} onMouseLeave={()=>this.hideLanguageBox()}>
-                <ul >
-                  <li style={{borderBottom: '#eee solid 1px'}} onClick={()=>this.languageRedirect('jp')}> <span>日本語</span></li>
-                  <li onClick={()=>this.languageRedirect('en')}><span>English</span></li>
-                </ul>
-              </div>
+                <IconButton aria-label="language" title="切换语言" style={{ color: '#000000' }} onMouseOver={()=>this.showLanguageBox()} onMouseLeave={()=>this.hideLanguageBox()}>
+                  <LanguageIcon className={classes.searchIcon} style={{ color: '#000000' }} />
+                </IconButton>
+                <LanguageView showLanguage={this.state.showLanguage}/>
               </div>
               <IconButton aria-label="user-login" title="登录" style={{ color: '#000000', display: this.state.isLogin ? "none": "flex"}} onClick={()=>this.login()}>
                 <PersonOutlineIcon className={classes.searchIcon}/>

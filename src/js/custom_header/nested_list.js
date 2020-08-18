@@ -13,18 +13,18 @@ import {getCacheArticles, getArticlesBySection} from './fun.js';
 
 
 function NestedList(props) {
-  const {classes} = props;
+  const {classes, catalogState} = props;
   const [catalog, updateCatalog] = React.useState(props.catalog);
-  const [catalogState] = React.useState(props.catalogState);
-
+  // const [catalogState] = React.useState(props.catalogState);
   const domRef = React.useRef();
 
+
   React.useEffect(()=> {
-    console.log('children sender...catalogState changed...');
+    console.log('children sender...props.catalogState changed...');
     if(typeof domRef.current !== 'undefined'){
       domRef.current.scrollIntoView();
     }
-  },[catalogState]);
+  },[props.catalogState]);
 
   const handleSectionClick = (category_id, section_id) => {
     if(catalog[category_id].sections[section_id].loading) {
@@ -40,11 +40,11 @@ function NestedList(props) {
       {
         new_catalog[category_id].sections[section_id].articles = cache_articles;
         new_catalog[category_id].sections[section_id].open = true;
-        updateCatalog(new_catalog);
+        updateCatalog({...new_catalog});
       } else {
         new_catalog[category_id].sections[section_id].loading = true;
         new_catalog[category_id].sections[section_id].open = false;
-        updateCatalog(new_catalog);
+        updateCatalog({...new_catalog});
 
         getArticlesBySection(section_id).then(res => {
           new_catalog[category_id].sections[section_id].open = true;
@@ -55,7 +55,7 @@ function NestedList(props) {
       } 
     } else {
       new_catalog[category_id].sections[section_id].open = !catalog[category_id].sections[section_id].open;
-      updateCatalog(new_catalog);
+      updateCatalog({...new_catalog});
     } 
   }
 

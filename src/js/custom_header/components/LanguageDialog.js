@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function LanguageView(props) {
+export default function LanguageDialog(props) {
   const {showLanguage} = props;
   const [isShow, updateShow] = React.useState(false);
 
@@ -28,7 +28,7 @@ export default function LanguageView(props) {
 
   return (
     <div 
-    className={'cust_language_box' + ((isShow || showLanguage)? ' cust_language_box_expand' : '')}
+    className={'cust_dialog_box' + ((isShow || showLanguage)? ' cust_dialog_box_expand' : '')}
     onMouseOver={()=>show()}
     onMouseLeave={()=>hide()}
      >

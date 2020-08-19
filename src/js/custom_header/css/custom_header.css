@@ -8,7 +8,7 @@
   }
 }
 
-.cust_language_box {
+.cust_dialog_box {
   position: absolute;
   border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12), 0px -1px 3px 0px rgba(0,0,0,0.12);
@@ -21,27 +21,27 @@
   visibility: hidden;
 }
 
-.cust_language_box ul{
+.cust_dialog_box ul{
   padding: 0 15px;
   opacity: 0;
 }
 
-.cust_language_box ul li{
+.cust_dialog_box ul li{
   text-align: center;
   padding: 0 15px;
   cursor:pointer;
 }
 
-.cust_language_box ul li:hover {
+.cust_dialog_box ul li:hover {
   color: #47ACDD;
 }
 
-.cust_language_box_expand {
+.cust_dialog_box_expand {
   visibility: visible;
   /* opacity: 1; */
 }
 
-.cust_language_box_expand ul{
+.cust_dialog_box_expand ul{
   opacity: 1;
   transition:opacity 0.35s, visibility .35s;
   -webkit-transition: opacity 0.35, visibility .35s;
@@ -107,3 +107,57 @@
   max-width: 1024px;
   margin: 0 auto;
 }
+
+.cust_header_license {
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  background-color: #fdd000;
+  line-height: 20px;
+}
+
+.cust_arrow_up{
+  font-size: 0;
+  line-height: 0;
+  border-width: 6px;
+  border-color: rgb(129, 126, 126);
+  border-top-width: 0;
+  border-style: dashed;
+  border-bottom-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+} 
+
+.cust_arrow_down{
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
+  margin-left: 6px;
+  border-width: 5px;
+  border-color: rgb(129, 126, 126);
+  border-bottom-width: 0;
+  border-style: dashed;
+  border-top-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  transition: transform 0.2s, webkit-transform 0.2s;
+  -webkit-transition: transform 0.2s, webkit-transform 0.2s;
+}
+
+.cust_arrow_up{
+  transform:rotate(-180deg);
+  -ms-transform:rotate(-180deg); /* Internet Explorer */
+  -moz-transform:rotate(-180deg); /* Firefox */
+  -webkit-transform:rotate(-180deg); /* Safari 和 Chrome */
+  -o-transform:rotate(-180deg); /* Opera */
+}
+
+.cust_dir_menu {
+  display: inline-block;
+}
+
+@media (max-width:1250px){
+  .cust_dir_menu {
+      display: none;
+    }
+  }

@@ -8,8 +8,8 @@ import Collapse from '@material-ui/core/Collapse';
 import RootRef  from '@material-ui/core/RootRef';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import {stylesB} from './style.js';
-import {getCacheArticles, getArticlesBySection} from './fun.js';
+import {stylesB} from '../css/style.js';
+import {catalogObjOrder} from '../util/catalog_structure.js'
 
 
 function NestedList(props) {
@@ -43,7 +43,7 @@ function NestedList(props) {
     aria-labelledby="nested-list-subheader"
     className={classes.root}>
       {
-        Object.keys(catalog).map((c_idx) => {
+        catalogObjOrder.map((c_idx) => {
           var list = [];
           list.push(
             <ListSubheader key={c_idx} className={classes.subHeader + (catalog[c_idx]['selected'] && catalogState['type'] == 'category'  ? ' ' + classes.subHeaderSelected : '')} disableSticky={true}>{catalog[c_idx]['title']}</ListSubheader>

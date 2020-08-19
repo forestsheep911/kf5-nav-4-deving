@@ -25,23 +25,25 @@ export const catalogObject = {
           '1073865': {id: '1073865', title: 'cybozu.cn 共通', open: false, loading: false, articles:[]}
           }
   },
-  '27415': {id: '27415', title: '开发范例', selected: false, sections: {
+  '27415': {id: '27415', title: '开发范例', selected: false, hiddenW: 1140,sections: {
           '106252': {id: '106252', title: '自定义开发', open: false, loading: false, articles: []},
           '1019421': {id: '1019421', title: '第三方API整合', open: false, loading: false, articles:[]}
           }
   },
-  '27416': {id: '27416', title: '插件', selected: false, sections: {
+  '27416': {id: '27416', title: '插件', selected: false, hiddenW: 1200, sections: {
           '1073272': {id: '1073272', title: '插件', open: false, loading: false, articles:[]}
           }
   },
-  '27417': {id: '27417', title: '工具', selected: false, sections: {
+  '27417': {id: '27417', title: '工具', selected: false, hiddenW: 1300, sections: {
           '106254': {id: '106254', title: '开发工具', open: false, loading: false, articles: []},
           '106255': {id: '106255', title: '资源库', open: false, loading: false, articles:[]}
           }
   },
-  '28043': {id: '28043', title: '通知', selected: false, sections: {
+  '28043': {id: '28043', title: '通知', selected: false, hiddenW: 1300, sections: {
           '108673': {id: '108673', title: '咨询动态', open: false, loading: false, articles: []},
           '108672': {id: '108672', title: 'API更新信息', open: false, loading: false, articles: []}
           }
   }
 };
+
+export const catalogObjOrder = ['27412','1018929','27413', '27414', '27415', '27416', '27417', '28043']

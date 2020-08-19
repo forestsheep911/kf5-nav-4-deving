@@ -1,20 +1,20 @@
-import css from '../../css/custom_header.css';
 import React, { Component }from 'react';
-import {AppBar, Toolbar, IconButton, Link, Drawer, Hidden} from '@material-ui/core';
+import {AppBar, Toolbar, IconButton, Drawer, Hidden} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import LanguageIcon from '@material-ui/icons/Language';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-import NestedList from './nested_list';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import PropTypes from 'prop-types';
-import {adjustCSApage, adjustPages, initDataAtCategory, initDataAtSection, initDataAtArticle} from './init.js';
-import {getArticles, getArticlesBySection} from './fun.js';
-import {catalogObject} from './catalog_structure.js';
-import {styles} from './style.js';
-import LanguageView from './language.js';
+import NestedList from './NestedList.js';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import {adjustCSApage, adjustPages, initDataAtCategory, initDataAtSection, initDataAtArticle} from '../util/init.js';
+import {getArticles} from '../util/fun.js';
+import {catalogObject} from '../util/catalog_structure.js';
+import {styles} from '../css/style.js';
+import LanguageDialog from './LanguageDialog.js';
+import DirMenu from './DirMenu.js'
 
 
 const catalogStateInfo = {
@@ -139,24 +139,11 @@ class KfiveCustomHeader extends Component {
                 </a>
               </div>
 
-              <div style={{marginLeft: '20px', flexGrow: '1'}}>
-                <Hidden smDown implementation="css">
-                {
-                  Object.keys(this.state.catalog).map((idx) => {
-                    return <div key={idx} className={classes.titleMenu + (this.state.catalog[idx]['selected'] ? ' ' + classes.titleMenuActived : '')}>
-                      <Link
-                        href={'/hc/kb/category' + idx}
-                        underline='none'
-                        className={classes.aLink}
-                        selected={false}>
-                        {this.state.catalog[idx]['title']}
-                      </Link>
-                    </div>
-                  })
-                }
-                </Hidden>
-              </div>
+              <DirMenu catalog={this.state.catalog} />
 
+              <div className={'cust_header_license'}>
+                <a href="https://cybozudev.kf5.com/hc/kb/article/1307437/"><spacn>免费申请开发者账号</spacn></a>
+              </div>
               <IconButton aria-label="search" title="检索内容" style={{ color: '#000000' }} onClick={(e)=>this.showSearch(e)}>
                 <SearchIcon className={classes.searchIcon}/>
               </IconButton>
@@ -164,7 +151,7 @@ class KfiveCustomHeader extends Component {
                 <IconButton aria-label="language" title="切换语言" style={{ color: '#000000' }} onMouseOver={()=>this.showLanguageBox()} onMouseLeave={()=>this.hideLanguageBox()}>
                   <LanguageIcon className={classes.searchIcon} style={{ color: '#000000' }} />
                 </IconButton>
-                <LanguageView showLanguage={this.state.showLanguage}/>
+                <LanguageDialog showLanguage={this.state.showLanguage}/>
               </div>
               <IconButton aria-label="user-login" title="登录" style={{ color: '#000000', display: this.state.isLogin ? "none": "flex"}} onClick={()=>this.login()}>
                 <PersonOutlineIcon className={classes.searchIcon}/>

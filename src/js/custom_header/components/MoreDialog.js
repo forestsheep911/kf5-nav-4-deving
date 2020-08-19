@@ -14,7 +14,7 @@ export default function MoreDialog(props) {
   }
 
   const moreRedirect = (c_id) => {
-    window.location.href = '/hc/kb/catagory/' + c_id;
+    window.location.href = '/hc/kb/category/' + c_id;
   }
 
   return (

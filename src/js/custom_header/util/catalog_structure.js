@@ -15,7 +15,7 @@ export const catalogObject = {
           '1001894': {id: '1001894', title: 'kintone 自定义的技巧', open: false, loading: false, articles: []}
           }
   },
-  '27414': {id: '27414', title: 'API文档和SDK', selected: false, sections: {
+  '27414': {id: '27414', title: 'API文档和SDK', selected: false, hiddenW: 1015, sections: {
           '106249': {id: '106249', title: 'kintone API指南', open: false, loading: false, articles: []},
           '106250': {id: '106250', title: 'kintone REST API', open: false, loading: false, articles: []},
           '106251': {id: '106251', title: 'kintone JavaScript API', open: false, loading: false, articles: []},
@@ -25,7 +25,7 @@ export const catalogObject = {
           '1073865': {id: '1073865', title: 'cybozu.cn 共通', open: false, loading: false, articles:[]}
           }
   },
-  '27415': {id: '27415', title: '开发范例', selected: false, hiddenW: 1140,sections: {
+  '27415': {id: '27415', title: '开发范例', selected: false, hiddenW: 1140, sections: {
           '106252': {id: '106252', title: '自定义开发', open: false, loading: false, articles: []},
           '1019421': {id: '1019421', title: '第三方API整合', open: false, loading: false, articles:[]}
           }

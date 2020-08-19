@@ -42,7 +42,7 @@ function DirMenu(props) {
                   key={c_id}
                   className={classes.titleMenu + (catalogObject[c_id]['selected'] ? ' ' + classes.titleMenuActived : '') + (catalogObject[c_id]['canHidden'] ? ' cust_dir_menu' : '')}>
                   <Link
-                    href={'/hc/kb/catagory/' + c_id}
+                    href={'/hc/kb/category/' + c_id}
                     underline='none'
                     className={classes.aLink}
                     selcted={false}>

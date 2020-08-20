@@ -1,6 +1,5 @@
-import css from '../../css/dynamic_index_style.css';
 import React from 'react';
-import {throttle} from '../util/util.js';
+import {throttle} from '../../util/util.js';
 
 const  dynamicIndexObject = [];
 const  dynamicIndexPosition = {position: 0};

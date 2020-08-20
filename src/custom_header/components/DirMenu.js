@@ -3,7 +3,7 @@ import {withStyles} from '@material-ui/core/styles';
 import {styles} from '../css/style.js';
 import {Hidden, Link} from '@material-ui/core';
 import {catalogObjOrder, catalogObject} from '../util/catalog_structure.js'
-import {throttle} from '../../util/util.js';
+import {throttle} from '../../util/util.js'
 import MoreDialog from './MoreDialog.js';
 
 function DirMenu(props) {

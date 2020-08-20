@@ -2,12 +2,6 @@
 
 该仓库是所有KF5网站改善项目中，使用react开发的项目集合。将这些项目合并在一起，是为了使用webpack打包时可以，提取react，等一些公共代码，从而解决单个js文件过大，和重复引入重复代码等问题。
 
-### 项目列表
-
-* 三层目录 https://github.com/cybozu-private/kf5-three-level-navigation-menu/tree/master/src/js/custom_header
-
-* 动态索引  https://github.com/cybozu-private/kf5-three-level-navigation-menu/tree/master/src/js/dynamic_index
-
 # 工程化配置
 
 ### 持续的、自动化打包、自带webserver的、开发环境配置

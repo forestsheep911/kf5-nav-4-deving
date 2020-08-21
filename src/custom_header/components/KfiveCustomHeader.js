@@ -40,11 +40,12 @@ class KfiveCustomHeader extends Component {
     console.log('father has mounted..........');
 
     let page_type = 'other';
-    // let current_url = parent.document.getElementById('preview_frame') ? parent.document.getElementById('preview_frame').contentWindow.location.href : window.location.href;
+    let current_url = parent.document.getElementById('preview_frame') ? parent.document.getElementById('preview_frame').contentWindow.location.href : window.location.href;
     // let current_url = 'https://cybozudev.kf5.com/hc/kb/category/27412/';
     // let current_url = 'https://cybozudev.kf5.com/hc/kb/section/106246/';
-    let current_url = 'https://cybozudev.kf5.com/hc/kb/article/1378683/';
+    // let current_url = 'https://cybozudev.kf5.com/hc/kb/article/1378683/';
  
+    console.log(current_url);
     if(/(category|section|article)/.test(current_url)) {
       page_type = RegExp.$1;
       
@@ -132,18 +133,21 @@ class KfiveCustomHeader extends Component {
               <IconButton style={{ color: '#000000' }} aira-label="open drawer" edg="start" onClick={()=>this.handleDrawerToggle()} className={classes.menuButton}>
                 <MenuIcon className={classes.menuIcon}/>
               </IconButton>
-
-              <div style={{display:'inline-block'}}>
-                <a href="/hc/" title="cybozu">
-                  <img style={{ height:'30px', width:'140px'}}src="https://fs.kf5.com/upload/23361/201609/57d644f573e8d_327.png" alt=""/>
-                </a>
-              </div>
+              <Hidden smDown implementation="css">
+                <div style={{display:'inline-block'}}>
+                  <a href="/hc/" title="cybozu">
+                    <img style={{ height:'30px', width:'140px'}}src="https://fs.kf5.com/upload/23361/201609/57d644f573e8d_327.png" alt=""/>
+                  </a>
+                </div>
+              </Hidden>
 
               <DirMenu catalog={this.state.catalog} />
-
+              <Hidden xsDown implementation="css">
               <div className={'cust_header_license'}>
-                <a href="https://cybozudev.kf5.com/hc/kb/article/1307437/"><spacn>免费申请开发者账号</spacn></a>
+                <a href="https://cybozudev.kf5.com/hc/kb/article/1307437/"><span>免费申请开发者账号</span></a>
               </div>
+              </Hidden>
+              
               <IconButton aria-label="search" title="检索内容" style={{ color: '#000000' }} onClick={(e)=>this.showSearch(e)}>
                 <SearchIcon className={classes.searchIcon}/>
               </IconButton>
@@ -174,7 +178,7 @@ class KfiveCustomHeader extends Component {
         <Hidden mdUp implementation="css">
          <Drawer 
           variant="temporary"
-          anchor={this.props.theme.direction !== 'rtl' ? 'right' : 'left'}
+          anchor={this.props.theme.direction !== 'rtl' ? 'left' : 'right'}
           open={this.state.mobileOpen}
           onClose={()=>this.handleDrawerToggle()}
           classes={{paper: classes.drawerPaperMin}}

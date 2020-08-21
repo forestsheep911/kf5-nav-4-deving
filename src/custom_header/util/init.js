@@ -7,6 +7,10 @@ import {getSectionIdByArticle, getCacheArticles, getArticlesBySection} from './f
 export const adjustCSApage = () => {
   jQuery('main').children().addClass('cust_content');
   jQuery('footer').children().addClass('cust_content');
+
+  document.getElementsByTagName("main")[0].children[0].style.display = 'none';
+  document.getElementsByClassName('right')[0].style.display = 'none';
+
 }
 
 /**
@@ -14,8 +18,6 @@ export const adjustCSApage = () => {
  * @param {Object} comp
  */
 export const adjustPages = (comp) => {
-  jQuery('main').show();
-  jQuery('footer').show();
 
   let userinfo_container = jQuery('#user_info_container');
   let kf5_orginal_userinfo = jQuery('.user-nav');
@@ -23,8 +25,16 @@ export const adjustPages = (comp) => {
   let is_login = (kf5_orginal_userinfo.find('.user-info-name').get(0).childNodes[0].nodeName === document.createElement('a').nodeName) ? false : true;
   userinfo_container.append(kf5_orginal_userinfo.eq(0));
   
+  //由于顶部bar，将原整体页面下移
   jQuery('main').css('margin-top', '70px');
-  
+
+  //整个react UI组件都渲染完后，将遮盖层隐藏
+  let coverLayer = document.getElementById('cover_layer');
+  if(coverLayer) {
+    coverLayer.style.display = 'none';
+  }
+
+
   comp.setState({
     isLogin: is_login
   })
@@ -38,7 +48,7 @@ export const adjustPages = (comp) => {
  * @param {String} curl 
  */
 export const initDataAtCategory = (comp, catalog, catalogState, curl) => {
-  /category\/(\d+)\//.test(curl);
+  /category\/(\d+)/.test(curl);
   let num = RegExp.$1;
   catalogState.type = 'category';
   catalogState.num = num;
@@ -58,7 +68,7 @@ export const initDataAtCategory = (comp, catalog, catalogState, curl) => {
  * @param {String} curl 
  */
 export const initDataAtSection = (comp, catalog, catalogState, curl) => {
-  /section\/(\d+)\//.test(curl);
+  /section\/(\d+)/.test(curl);
   let num = RegExp.$1;
   catalogState.type = 'section';
   catalogState.num = num;
@@ -82,7 +92,7 @@ export const initDataAtSection = (comp, catalog, catalogState, curl) => {
  * @param {String} curl 
  */
 export const initDataAtArticle = (comp, catalog, catalogState, curl) => {
-  /article\/(\d+)\//.test(curl);
+  /article\/(\d+)/.test(curl);
   let num = RegExp.$1;
   catalogState.type = 'article';
   catalogState.num = num;

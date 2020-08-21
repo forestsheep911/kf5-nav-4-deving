@@ -5,11 +5,11 @@ export const catalogObject = {
           '1173107': {id: '1173107', title: 'kintone开发者演示环境', open: false, loading: false, articles: []}
           }
   },
-  '1018929': {id: '1018929', title: '行业案例', selected: false, sections: {
+  '1018929': {id: '1018929', title: '行业案例', selected: false, hiddenW: 740, sections: {
           '1074068': {id: '1074068', title: '共通', open: false, loading: false, articles: []}
           }
   },
-  '27413': {id: '27413', title: '教程', selected: false, sections: {
+  '27413': {id: '27413', title: '教程', selected: false, hiddenW: 800, sections: {
           '106247': {id: '106247', title: 'kintone自定义概要', open: false, loading: false, articles: []},
           '106248': {id: '106248', title: 'kintone API入门系列', open: false, loading: false, articles: []},
           '1001894': {id: '1001894', title: 'kintone 自定义的技巧', open: false, loading: false, articles: []}

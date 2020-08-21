@@ -32,7 +32,7 @@ function DirMenu(props) {
 
   return (
     <div style={{marginLeft:'20px', flexGrow: '1',display: 'flex'}}>
-      <Hidden smDown implementation="css" style={{display:'inline-block'}}>
+      <Hidden xsDown implementation="css">
         {
           catalogObjOrder.map((c_id) => {
             if (catalogObject[c_id]['hiddenW'] > windowWidth) {
@@ -45,7 +45,7 @@ function DirMenu(props) {
                     href={'/hc/kb/category/' + c_id}
                     underline='none'
                     className={classes.aLink}
-                    selcted={false}>
+                    selected={false}>
                     {catalogObject[c_id]['title']}
                   </Link>
                 </div>

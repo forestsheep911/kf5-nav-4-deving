@@ -4,8 +4,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: {
-        'cybozu_kf5_header': path.resolve(__dirname, 'src/js/custom_header/index'),
-        'dynamic_index': path.resolve(__dirname, 'src/js/dynamic_index/index'),
+        'cybozu_kf5_header': path.resolve(__dirname, 'src/custom_header/index'),
+        'dynamic_index': path.resolve(__dirname, 'src/dynamic_index/index'),
     },
     output: {
         filename: '[name].bundle.js',

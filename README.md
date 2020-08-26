@@ -42,6 +42,41 @@ npm run dev
 * 完成以上步骤后，本地会启动一个服务器，访问地址是http://localhost:8080/
 之后，当修改原代码保存后，webpack会自动打包，并刷新网址，使用最新编译好的代码。
 
+# 部署方案 & 正式环境使用JS文件打包
+
+* 正式环境js文件，使用npm run build命令打包，具体的打包配置可以查看根目录下的webpack.config.js
+* 打包成功后会在dist目录下生成3个文件
+```
+* cybozu_kf5_header.bundle.js //项目代码
+* material_ui_core_main.bundle.js // material ui库用到的组件
+* react_main.bundle.js  // react核心代码
+* vendor_libarys.bundle.js // 其它使用到的第三方包 node_modules目录下的
+
+具体可以查看webpack.config.js 的 optimization.splitChunks配置项， 怎么分割打包和包名规则都在这个配置内
+```
+
+## 正式环境部署方案
+
+* 将上面打包好的4个文件传到 阿里云oss上
+* 将下面一段代码复制到 【kf5模板编辑页>页面底部】最下方。
+```
+//因为项目不兼容IE10一下浏览器，所以JS引用需要过滤
+<!--[if (gte IE 10)|(!IE)]> -->
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/vendor_libarys.bundle.js" type="text/javascript"></script>
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/react_main.bundle.js" type="text/javascript"></script>
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/material_ui_core_main.bundle.js" type="text/javascript"></script>
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/cybozu_kf5_header.bundle.js" type="text/javascript"></script>
+<!-- <![endif]-->
+```
+* 修改【kf5模板编辑页>页面头部】
+```
+//将原先class属性是header的div隐藏,并新加一个id为header的div
+<div class="header"></div>
+修改成下面
+<div id="cover_layer" style="position: fixed; top: 0px; bottom: 0px; left: 0px; right: 0px; background-color: #fff; z-index: 2000;"></div> 
+<div class="header" style="display:none"></div>
+<div id="header"></div>
+```
 
 
 

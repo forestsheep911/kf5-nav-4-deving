@@ -7,3 +7,4 @@ import css from './css/style.scss';
 
 window.Promise = window.Promise || Promise;
 ReactDOM.render(<KfiveCustomHeader />, document.getElementById('header'));
+

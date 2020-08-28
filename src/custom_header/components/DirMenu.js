@@ -13,7 +13,7 @@ function DirMenu(props) {
 
   React.useEffect(()=>{
 
-    let windowResize = throttle(resizeWidth, 100);
+    let windowResize = throttle(resizeWidth, 50);
     window.addEventListener('resize', windowResize);
   },[])
 

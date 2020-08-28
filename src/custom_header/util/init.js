@@ -117,7 +117,7 @@ export const initDataAtArticle = (comp, catalog, catalogState, curl) => {
       return getArticlesBySection(section_id);
     }
   }, err => {
-    console.log('Faild to get Section ID.....', err);
+    // console.log('Faild to get Section ID.....', err);
   }).then(res => {
     if( typeof res !== 'undefined' && res !== null) {
       catalog[category_id].selected = true;
@@ -130,6 +130,6 @@ export const initDataAtArticle = (comp, catalog, catalogState, curl) => {
       })
     }
   }, err => {
-    console.log('Faild to get Article list........', err);
+    // console.log('Faild to get Article list........', err);
   })
 }

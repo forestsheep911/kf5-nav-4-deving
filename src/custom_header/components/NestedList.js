@@ -18,7 +18,6 @@ function NestedList(props) {
 
 
   React.useEffect(()=> {
-    console.log('children sender...props.catalogState changed...');
     if(typeof domRef.current !== 'undefined'){
       domRef.current.scrollIntoView();
     }

@@ -19,7 +19,7 @@ const saveCache = (articles, section_id) => {
  * @param {number} section_id 
  */
 export const getArticlesBySection = (section_id) => {
-  console.log('start geting articles list.......');
+  // console.log('start geting articles list.......');
   let settings = {
       "url": "https://cybozudev.kf5.com/apiv2/forums/"+ section_id +"/posts.json?sort=sort:desc,'is_top':1",
       "method": "GET",
@@ -55,13 +55,13 @@ export const getArticlesBySection = (section_id) => {
  * @param {number} section_id 
  */
 export const getCacheArticles = (section_id) => {
-  console.log('get cache data............');
+  // console.log('get cache data............');
   let articles_session_storage = (typeof window.sessionStorage !== 'undefined') ? JSON.parse(window.sessionStorage.getItem('s'+section_id)) : null;
   let now_time = (new Date()).getTime()/1000;
 
   let articles = [];
   if( articles_session_storage !== null  && ( (now_time - articles_session_storage['updatetime']) < 3600) ) {
-    console.log('using storage data');
+    // console.log('using storage data');
     articles = articles_session_storage.articles;
   }
 
@@ -73,7 +73,7 @@ export const getCacheArticles = (section_id) => {
  * @param {number} article_id 
  */
 export const getSectionIdByArticle = (article_id) => {
-  console.log('start geting article info......');
+  // console.log('start geting article info......');
   let settings = {
       "url": "https://cybozudev.kf5.com/apiv2/posts/"+ article_id + ".json",
       "method": "GET",

@@ -37,15 +37,14 @@ class KfiveCustomHeader extends Component {
   }
 
   componentDidMount(){
-    console.log('father has mounted..........');
 
     let page_type = 'other';
     let current_url = parent.document.getElementById('preview_frame') ? parent.document.getElementById('preview_frame').contentWindow.location.href : window.location.href;
+    
     // let current_url = 'https://cybozudev.kf5.com/hc/kb/category/27412/';
     // let current_url = 'https://cybozudev.kf5.com/hc/kb/section/106246/';
     // let current_url = 'https://cybozudev.kf5.com/hc/kb/article/1378683/';
- 
-    console.log(current_url);
+
     if(/(category|section|article)/.test(current_url)) {
       page_type = RegExp.$1;
       

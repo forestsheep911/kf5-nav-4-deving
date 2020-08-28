@@ -18,19 +18,19 @@
 
 将来路过对KF5网站的一级文档分类的增删改，或者排序的修改。都需要对本项目中的/src/custom_header/util/catalog_structure.js进行相应的修改
 
-* catalogObject 主要是kf5网站中一级和二级分类的属性和层级关系的映
+* catalogObject 主要是kf5网站中一级和二级分类的属性和层级关系的映射
 ```
 
 catelogObject = { //catelogObject本身是个对象
    ...
-   '[一级分类id]' : { id: 'xxx(一级分类id)', title: '(一级分类名称)', selected: '(被代码使用的标识，true时标识选中状态)',hiddenW: '111(代码标识，表示屏幕缩小的这个尺寸时，该菜单要给折叠显示)'sections: { (二级分类对象)}
+   '[一级分类id]' : { id: 'xxx(一级分类id)', title: '(一级分类名称)', selected: '(被代码使用的标识，true时标识选中状态)',hiddenW: '111(代码标识，表示屏幕缩小至这个尺寸时，该菜单要被折叠显示)'， sections: { (二级分类对象)}
    ...
 }
 
 // 二级分类对象
 sections : {
   ...
-  '[二级分类id]' : { id: '(二级分类id)', title: '(二级分类名称)', open : '(代码标识，true时标识二级菜单被展开)'， loading: '(代码标识，true标识正在加载三级菜单数据)', articles：[(集体文档列表，通过ajax请求获取，结构请查看代码自己分析)]}
+  '[二级分类id]' : { id: '(二级分类id)', title: '(二级分类名称)', open : '(代码标识，true时标识二级菜单被展开)', loading: '(代码标识, true标识正在加载三级菜单数据)', articles：[(集体文档列表，通过ajax请求获取，结构请查看代码自己分析)]}
   ...
 }
 ```

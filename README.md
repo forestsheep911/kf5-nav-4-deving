@@ -77,6 +77,10 @@ npm run dev
 <div class="header" style="display:none"></div>
 <div id="header"></div>
 ```
-
+* 修改【kf5模板编辑页>首页】
+```
+//将首页原先的目录菜单隐藏，给class是navigation的元素添加display:none的style属性
+ <div class="navigation" style="display:none;">
+```
 
 

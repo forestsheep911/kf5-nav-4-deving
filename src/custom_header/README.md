@@ -62,7 +62,7 @@ sections : {
 现在kf5网站内还不存在，分类下文章有超过100条的情况。将来某个分类下文章快接近100这个基数时，需要提前实现分页获取记录功能。
 
 目前用到以下两个Restful API
-* 查看指定文档分类的正式文档列表: /apiv2/forums/{forum_id}/posts.json
-* 查看文档（获取返回json对象内的forum_id）：/apiv2/posts/{id}.json
+* 查看指定文档分类的正式文档列表: /apiv2/forums/{forum_id}/posts.json [KF5 api 参考文档](https://developer.kf5.com/doc/restapi/core/)
+* 查看文档（获取返回json对象内的forum_id）：/apiv2/posts/{id}.json [KF5 api 参考文档1](https://developer.kf5.com/doc/restapi/helpcenter/38-210)
+[KF5 api 参考文档2](https://developer.kf5.com/doc/restapi/helpcenter/38-208)
 
-[KF5 api 参考文档](https://developer.kf5.com/doc/restapi/core/)

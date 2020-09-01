@@ -10,36 +10,59 @@
 <br/>
 <br/>
 
-* 适配手机等小屏幕效果
-![适配手机等小屏幕](/resources/min_screen.gif)
-
-
 # 注意事项
 
-将来路过对KF5网站的一级文档分类的增删改，或者排序的修改。都需要对本项目中的/src/custom_header/util/catalog_structure.js进行相应的修改
+##  如何修改KF5网站一级、二级菜单
+将来如果对KF5网站的一级、二级文档分类进行了，增、删、改、排序等操作。都需要对本项目中的/src/custom_header/util/catalog_structure.js文件进行相应的修改。
 
 * catalogObject 主要是kf5网站中一级和二级分类的属性和层级关系的映射
 ```
 
 catelogObject = { //catelogObject本身是个对象
    ...
-   '[一级分类id]' : { id: 'xxx(一级分类id)', title: '(一级分类名称)', selected: '(被代码使用的标识，true时标识选中状态)',hiddenW: '111(代码标识，表示屏幕缩小至这个尺寸时，该菜单要被折叠显示)'， sections: { (二级分类对象)}
+   '[一级分类id]' : { id: 'xxx(一级分类id)', title: '(一级分类名称)', selected: '(代码标识，true选中状态)',hiddenW: '111(代码标识，表示屏幕缩小至这个尺寸时，该菜单要被折叠显示)'， sections: { (二级分类对象)}
    ...
 }
 
 // 二级分类对象
 sections : {
   ...
-  '[二级分类id]' : { id: '(二级分类id)', title: '(二级分类名称)', open : '(代码标识，true时标识二级菜单被展开)', loading: '(代码标识, true标识正在加载三级菜单数据)', articles：[(集体文档列表，通过ajax请求获取，结构请查看代码自己分析)]}
+  '[二级分类id]' : { id: '(二级分类id)', title: '(二级分类名称)', open : '(代码标识，true时二级菜单被展开)', loading: '(代码标识, true表示正在加载三级菜单数据)', articles：[(集体文档列表，通过ajax请求获取，结构请查看代码自己分析)]}
   ...
 }
 ```
-* catalogObjOrder 主要用于决定一级菜单显示顺序
+* catalogObjOrder 主要用于决定一级菜单显示顺序、显示与否。
 
 ```
-//它就是一个数组 ，数组值是一级分类的id， 当你向修改一级带单显示顺序时修改该文件。
+//数组对象内值的顺序就是，导航菜单上的顺序
  catalogObjOrder = ['27412','1018929','27413', '27414', '27415', '27416', '27417', '28043']
 ```
 
 记得每次修改后都需要重新打包出js文件上传至马云。
 （第3方依赖库没有新版本情况下，打包后只有/dist/cybozu_kf5_header.bundle.js会有变化）
+
+## KF5 Restful API
+本项目请求kf5 Restful API 时，使用的是 basic Auth.
+如果要替换用户。需要修改以下文件内几处信息。
+```
+// 文件： src/custom_header/util/fun.js
+以下两处函数内 :
+1. getSectionIdByArticle
+2. getArticlesBySection
+
+//替换()号内的内容， 内容可以借助postman 工具生成。
+"headers": {
+          "Authorization": ("Basic NDA4NTg3NzI0QHFxLmNvbS90b2tlbjpkOGIyMTA1NjBhNGQxYTczNzA1YmNiOTEzMDkyNGU=")
+      }, 
+```
+[KF5 认证API参考文档](https://developer.kf5.com/doc/restapi/core/)
+
+## 文档获取上限
+目前没有处理获取文档记录API的分页问题，因为分页的基数是100条。
+现在kf5网站内还不存在，分类下文章有超过100条的情况。将来某个分类下文章快接近100这个基数时，需要提前实现分页获取记录功能。
+
+目前用到以下两个Restful API
+* 查看指定文档分类的正式文档列表: /apiv2/forums/{forum_id}/posts.json
+* 查看文档（获取返回json对象内的forum_id）：/apiv2/posts/{id}.json
+
+[KF5 api 参考文档](https://developer.kf5.com/doc/restapi/core/)

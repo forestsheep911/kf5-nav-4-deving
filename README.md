@@ -70,17 +70,11 @@ npm run dev
 ```
 * 修改【kf5模板编辑页>页面头部】
 ```
-//将原先class属性是header的div隐藏,并新加一个id为header的div
-<div class="header"></div>
-修改成下面
-<div id="cover_layer" style="position: fixed; top: 0px; bottom: 0px; left: 0px; right: 0px; background-color: #fff; z-index: 2000;"></div> 
-<div class="header" style="display:none"></div>
+//最下面添加如下代码
+<!--[if (gte IE 10)|(!IE)]> -->
+<div id="cover_layer" style="cus_cover"></div> 
 <div id="header"></div>
-```
-* 修改【kf5模板编辑页>首页】
-```
-//将首页原先的目录菜单隐藏，给class是navigation的元素添加display:none的style属性
- <div class="navigation" style="display:none;">
+<!-- <![endif]-->
 ```
 
 

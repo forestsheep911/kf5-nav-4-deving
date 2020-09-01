@@ -24,6 +24,16 @@ $highlight-blue: #47ACDD;
   }
 }
 
+.cus_cover {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: #fff;
+  z-index: 2000;
+}
+
 .cust_dialog_box {
   position: absolute;
   border-radius: 4px;

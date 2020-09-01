@@ -45,9 +45,8 @@ class KfiveCustomHeader extends Component {
     // let current_url = 'https://cybozudev.kf5.com/hc/kb/section/106246/';
     // let current_url = 'https://cybozudev.kf5.com/hc/kb/article/1378683/';
 
-    if(/(category|section|article)/.test(current_url)) {
+    if(/\/(category|section|article)\//.test(current_url)) {
       page_type = RegExp.$1;
-      
       adjustCSApage();
       
       this.setState({

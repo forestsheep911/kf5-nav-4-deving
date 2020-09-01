@@ -28,6 +28,9 @@ export const adjustPages = (comp) => {
   //由于顶部bar，将原整体页面下移
   jQuery('main').css('margin-top', '70px');
 
+  //将首页旧的导航菜单隐藏
+  jQuery('main').find('.navigation').css('display','none');
+
   //整个react UI组件都渲染完后，将遮盖层隐藏
   let coverLayer = document.getElementById('cover_layer');
   if(coverLayer) {

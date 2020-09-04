@@ -20,9 +20,9 @@ npm init //生成
 
 ```
 \\自建新环境
-npm -i webpack, webpack-cli, webpack-dev-server, html-webpack-plugin
+npm i webpack, webpack-cli, webpack-dev-server, html-webpack-plugin
 \\使用本仓库package.json
-npm -i
+npm i
 ```
 * 创建&配置webpack配置文件 （本仓库已存在写好的配置文件\[webpack.dev.config.js\]）
 

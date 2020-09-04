@@ -24,7 +24,7 @@ export const getArticlesBySection = (section_id) => {
       "url": "https://cybozudev.kf5.com/apiv2/forums/"+ section_id +"/posts.json?sort=sort:desc,'is_top':1",
       "method": "GET",
       "headers": {
-          "Authorization": "Basic NDA4NTg3NzI0QHFxLmNvbS90b2tlbjpkOGIyMTA1NjBhNGQxYTczNzA1YmNiOTEzMDkyNGU="
+          "Authorization": "Basic a2ludG9uZWRldkBjeWJvenUuY246Y3lib3p1ZGw2NjY="
       }, 
   };
 
@@ -78,7 +78,7 @@ export const getSectionIdByArticle = (article_id) => {
       "url": "https://cybozudev.kf5.com/apiv2/posts/"+ article_id + ".json",
       "method": "GET",
       "headers": {
-        "Authorization": "Basic NDA4NTg3NzI0QHFxLmNvbS90b2tlbjpkOGIyMTA1NjBhNGQxYTczNzA1YmNiOTEzMDkyNGU="
+        "Authorization": "Basic a2ludG9uZWRldkBjeWJvenUuY246Y3lib3p1ZGw2NjY="
       },
   };
 

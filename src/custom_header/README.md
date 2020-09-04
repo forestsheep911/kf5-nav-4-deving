@@ -43,7 +43,7 @@ sections : {
 
 ## KF5 Restful API
 本项目请求kf5 Restful API 时，使用的是 basic Auth.
-如果要替换用户。需要修改以下文件内几处信息。
+如果要替换用户。需要修改以下文件内几处信息。[目前使用该账户](https://bozuman.cybozu.com/k/21732/show#record=98)
 ```
 // 文件： src/custom_header/util/fun.js
 以下两处函数内 :

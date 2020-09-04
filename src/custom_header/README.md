@@ -27,7 +27,7 @@ catelogObject = { //catelogObject本身是个对象
 // 二级分类对象
 sections : {
   ...
-  '[二级分类id]' : { id: '(二级分类id)', title: '(二级分类名称)', open : '(代码标识，true时二级菜单被展开)', loading: '(代码标识, true表示正在加载三级菜单数据)', articles：[(集体文档列表，通过ajax请求获取，结构请查看代码自己分析)]}
+  '[二级分类id]' : { id: '(二级分类id)', title: '(二级分类名称)', open : '(代码标识，true时二级菜单被展开)', loading: '(代码标识, true表示正在加载三级菜单数据)', articles：[(当前二级分类下的所有文档列表，通过ajax请求获取，结构请查看代码自己分析)]}
   ...
 }
 ```

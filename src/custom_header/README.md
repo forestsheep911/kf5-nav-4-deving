@@ -16,6 +16,7 @@
 将来如果对KF5网站的一级、二级文档分类进行了，增、删、改、排序等操作。都需要对本项目中的/src/custom_header/util/catalog_structure.js文件进行相应的修改。
 
 * catalogObject 主要是kf5网站中一级和二级分类的属性和层级关系的映射
+* 一级菜单的hiddenW属性的修改， 通过调节浏览器大小，找到各个一级菜单适合的隐藏值作为hiddenW的值.
 ```
 
 catelogObject = { //catelogObject本身是个对象

@@ -181,7 +181,7 @@ class KfiveCustomHeader extends Component {
           onClose={()=>this.handleDrawerToggle()}
           classes={{paper: classes.drawerPaperMin}}
           ModalProps={{keepMounted:true}}>
-            <NestedList catalog={this.state.catalog} catalogState={this.state.catalogState} sectionClick={(c,s)=>this.handleSectionClick(c,s)}/>
+            <NestedList home={true} catalog={this.state.catalog} catalogState={this.state.catalogState} sectionClick={(c,s)=>this.handleSectionClick(c,s)}/>
          </Drawer>
         </Hidden>
         <Hidden smDown implementation="css">

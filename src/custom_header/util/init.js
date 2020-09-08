@@ -31,6 +31,9 @@ export const adjustPages = (comp) => {
   //将首页旧的导航菜单隐藏
   jQuery('main').find('.navigation').css('display','none');
 
+  //将旧title bar隐藏
+  jQuery('.header').eq(0).hide();
+
   //整个react UI组件都渲染完后，将遮盖层隐藏
   let coverLayer = document.getElementById('cover_layer');
   if(coverLayer) {

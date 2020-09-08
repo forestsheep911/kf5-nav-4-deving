@@ -13,7 +13,7 @@ import {catalogObjOrder} from '../util/catalog_structure.js'
 
 
 function NestedList(props) {
-  const {classes, catalog, catalogState, sectionClick} = props;
+  const {classes, catalog, catalogState, sectionClick, home = false} = props;
   const domRef = React.useRef();
 
 
@@ -36,11 +36,22 @@ function NestedList(props) {
   const ListItemLink = (props) =>{
     return <ListItem button component="a" {...props} />;
   }
+  
+  const HomeDiv = () => {
+    return (
+      <div style={{display:'inline-block'}}>
+        <a href="/hc/" title="cybozu">
+          <img style={{ height:'30px', width:'140px'}}src="https://fs.kf5.com/upload/23361/201609/57d644f573e8d_327.png" alt=""/>
+        </a>
+      </div>
+    )
+  }
 
   return (
     <List component="nav"
     aria-labelledby="nested-list-subheader"
     className={classes.root}>
+      {home && <HomeDiv/>}
       {
         catalogObjOrder.map((c_idx) => {
           var list = [];

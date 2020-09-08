@@ -31,26 +31,6 @@ loadScript("https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/material_ui_core_m
 loadScript("https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/cybozu_kf5_header.bundle.js");
 
 
-    function loadScript(url, callback) {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        if (typeof(callback) != "undefined") {
-            if (script.readyState) {
-                script.onreadystatechange = function() {
-                    if (script.readyState == "loaded" || script.readyState == "complete") {
-                        script.onreadystatechange = null;
-                        callback();
-                    }
-                };
-            } else {
-                script.onload = function() {
-                    callback();
-                };
-            }
-        };
-        script.src = url;
-        document.body.appendChild(script);
-    }
 var contione = document.createElement('div');
 contione.setAttribute('id', 'dynamic_index');
 contione.style.height = '0px';

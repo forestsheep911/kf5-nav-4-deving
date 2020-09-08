@@ -1,1 +1,4 @@
 node_modules/
+
+src/custom_header/util/catalog_structure_copy.js
+src/custom_header/util/fun_copy.js

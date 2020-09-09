@@ -60,7 +60,7 @@ export const getCacheArticles = (section_id) => {
   let now_time = (new Date()).getTime()/1000;
 
   let articles = [];
-  if( articles_session_storage !== null  && ( (now_time - articles_session_storage['updatetime']) < 3600) ) {
+  if( articles_session_storage !== null  && ( (now_time - articles_session_storage['updatetime']) < 86400) ) {
     // console.log('using storage data');
     articles = articles_session_storage.articles;
   }

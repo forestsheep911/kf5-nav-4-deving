@@ -39,7 +39,7 @@ function NestedList(props) {
   
   const HomeDiv = () => {
     return (
-      <div style={{display:'inline-block'}}>
+      <div style={{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
         <a href="/hc/" title="cybozu">
           <img style={{ height:'30px', width:'140px'}}src="https://fs.kf5.com/upload/23361/201609/57d644f573e8d_327.png" alt=""/>
         </a>

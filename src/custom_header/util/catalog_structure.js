@@ -2,7 +2,7 @@ export const catalogObject = {
   '27413' : {id: '27413', title: '新手教程', selected: false, sections: {
           '106247': {id: '106247', title: '新手入门', open: false, loading: false, articles: []},
           '106248': {id: '106248', title: 'kintone API入门系列', open: false, loading: false, articles: []},
-          '1001894': {id: '1001894', title: 'kintone 自定义的技巧', open: false, loading: false, articles: []}
+          '1001894': {id: '1001894', title: 'kintone 自定义技巧', open: false, loading: false, articles: []}
           },
           sectionsOrder: ['106247', '106248', '1001894']
   },
@@ -39,7 +39,7 @@ export const catalogObject = {
           },
           sectionsOrder: ['1074068']
   },
-  '28043': {id: '28043', title: '通知', selected: false, hiddenW: 1290, sections: {
+  '28043': {id: '28043', title: '通知', selected: false, hiddenW: 1200, sections: {
           '108673': {id: '108673', title: '咨询动态', open: false, loading: false, articles: []},
           '108672': {id: '108672', title: 'API更新信息', open: false, loading: false, articles:[]}
           },
@@ -54,4 +54,4 @@ export const catalogObject = {
   }
 };
 
-export const catalogObjOrder = ['27413','27414','27415', '27416', '27417', '1018929', '28043', '1045439']
+export const catalogObjOrder = ['27413','27414','27415', '27416', '27417', '1018929', '28043']

@@ -61,7 +61,7 @@ function NestedList(props) {
 
           var sections_tmp = catalog[c_idx]['sections']
           list.push(
-            Object.keys(sections_tmp).map(s_idx => {
+            catalog[c_idx]['sectionsOrder'].map(s_idx => {
               let sub_list = []
               let section = sections_tmp[s_idx]
               if(catalogState['type'] == 'section' && section['id'] == catalogState['num']) {

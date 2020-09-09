@@ -1,6 +1,7 @@
 
 html{scroll-behavior:smooth;}
 
+
 .dynamic_index_root {
   position: fixed;
   margin: auto;
@@ -16,6 +17,11 @@ html{scroll-behavior:smooth;}
   border-bottom-left-radius: 5px;
 }
 
+@media (max-width:1380px){
+  .dynamic_index_root {
+    display:none;
+  }
+}
 .dynamic_index_ul {
   width: 20px;
   z-index: 1200;

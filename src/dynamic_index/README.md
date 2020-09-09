@@ -25,8 +25,10 @@
 
 * 在“知识库文档页”插入一个div和引用JS
 ````
+<!--[if (gte IE 10)|(!IE)]> -->
 <div id ="dynamic_index" style="width:0px;height:0px;"></div>
-<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/dynamic_index_marge.bundle.js" type="text/javascript" ></script>
+<script src="https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/dynamic_index.bundle.js" type="text/javascript" ></script>
+<!-- <![endif]-->
 ````
 
 

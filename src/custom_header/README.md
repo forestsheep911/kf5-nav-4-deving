@@ -21,7 +21,7 @@
 
 catelogObject = { //catelogObject本身是个对象
    ...
-   '[一级分类id]' : { id: 'xxx(一级分类id)', title: '(一级分类名称)', selected: '(代码标识，true选中状态)',hiddenW: '111(代码标识，表示屏幕缩小至这个尺寸时，该菜单要被折叠显示)'， sections: { (二级分类对象)}
+   '[一级分类id]' : { id: 'xxx(一级分类id)', title: '(一级分类名称)', selected: '(代码标识，true选中状态)',hiddenW: '111(代码标识，表示屏幕缩小至这个尺寸时，该菜单要被折叠显示)'， sections: { (二级分类对象), sectionsOrder[(二级菜单显示顺序，显示与否)]}
    ...
 }
 

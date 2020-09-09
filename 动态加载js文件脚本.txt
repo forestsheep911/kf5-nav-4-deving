@@ -37,7 +37,7 @@ contione.style.height = '0px';
 contione.style.width  = '0px';
 document.body.appendChild(contione);
 
-loadScript("https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/dynamic_index_marge.bundle.js", function() { 
+loadScript("https://cybozukf5.oss-cn-shanghai.aliyuncs.com/js/dynamic_index.bundle.js", function() { 
       alert('动态引入js文件成功')
 });
 

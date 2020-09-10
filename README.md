@@ -72,7 +72,7 @@ npm run dev
 ```
 //最下面添加如下代码
 <!--[if (gte IE 10)|(!IE)]> -->
-<div id="cover_layer" style="cus_cover"></div> 
+<div id="cover_layer" class="cus_cover"></div> 
 <div id="header"></div>
 <!-- <![endif]-->
 ```

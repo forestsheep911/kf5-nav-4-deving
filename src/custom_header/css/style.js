@@ -92,7 +92,7 @@ export const stylesB = theme => ({
     backgroundColor: '#e6f7ff'
   },
   article: {
-    color: '#87CEFA',
+    color: '#448ee1',
   },
   textPrimary: {
     fontFamily: 'Microsoft YaHei, 微软雅黑',

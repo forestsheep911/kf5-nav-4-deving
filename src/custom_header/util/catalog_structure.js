@@ -40,7 +40,7 @@ export const catalogObject = {
           sectionsOrder: ['1074068']
   },
   '28043': {id: '28043', title: '通知', selected: false, hiddenW: 1200, sections: {
-          '108673': {id: '108673', title: '咨询动态', open: false, loading: false, articles: []},
+          '108673': {id: '108673', title: '资讯动态', open: false, loading: false, articles: []},
           '108672': {id: '108672', title: 'API更新信息', open: false, loading: false, articles:[]}
           },
           sectionsOrder: ['108673', '108672']

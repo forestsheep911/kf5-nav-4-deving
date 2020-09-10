@@ -8,8 +8,8 @@ export const adjustCSApage = () => {
   jQuery('main').children().addClass('cust_content');
   jQuery('footer').children().addClass('cust_content');
 
-  document.getElementsByTagName("main")[0].children[0].style.display = 'none';
-  document.getElementsByClassName('right')[0].style.display = 'none';
+  jQuery(document.getElementsByTagName("main")[0].children[0]).remove();
+  jQuery(document.getElementsByClassName('right')[0]).remove();
 
 }
 
@@ -29,15 +29,15 @@ export const adjustPages = (comp) => {
   jQuery('main').css('margin-top', '70px');
 
   //将首页旧的导航菜单隐藏
-  jQuery('main').find('.navigation').css('display','none');
+  jQuery('main').find('.navigation').remove();
 
   //将旧title bar隐藏
   jQuery('.header').eq(0).hide();
 
   //整个react UI组件都渲染完后，将遮盖层隐藏
-  let coverLayer = document.getElementById('cover_layer');
-  if(coverLayer) {
-    coverLayer.style.display = 'none';
+  let coverLayer = jQuery('#cover_layer');
+  if(coverLayer.length > 0) {
+    coverLayer.remove();
   }
 
 

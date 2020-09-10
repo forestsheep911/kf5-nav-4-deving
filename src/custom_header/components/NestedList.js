@@ -67,7 +67,7 @@ function NestedList(props) {
               if(catalogState['type'] == 'section' && section['id'] == catalogState['num']) {
                 sub_list.push(
                   <RootRef key={s_idx} rootRef={domRef}>
-                    <ListItemLink  href="#" onClick={() => sectionClick(c_idx, section['id'])} selected={true}>
+                    <ListItemLink  href="javascript:void(0);" onClick={() => sectionClick(c_idx, section['id'])} selected={true}>
                       <ListItemText primary={section['title']} classes={{ primary: classes.textPrimary }}/> 
                       {sectionElem(section['loading'], section['open'])} 
                     </ListItemLink>
@@ -75,7 +75,7 @@ function NestedList(props) {
                 )
               } else {
                 sub_list.push(
-                  <ListItemLink  key={s_idx} href="#" onClick={() => sectionClick(c_idx, section['id'])} >
+                  <ListItemLink  key={s_idx} href="javascript:void(0);" onClick={() => sectionClick(c_idx, section['id'])} >
                     <ListItemText primary={section['title']} classes={{ primary: classes.textPrimary }}/> 
                     {sectionElem(section['loading'], section['open'])} 
                   </ListItemLink>

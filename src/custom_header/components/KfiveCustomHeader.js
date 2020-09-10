@@ -164,7 +164,7 @@ class KfiveCustomHeader extends Component {
             <div className={'cust_search_box' + (this.state.showSearch ? ' cust_search_box_expand' : '')} onClick={(e)=>this.stop(e)}>
               <form className={'cust_search_box_form' + (this.state.showSearch ? ' cust_search_box_form_expand' : '')} accept-charset="UTF-8" action="/hc/search/results/" method="get">
                 <div className={'cust_search_box_flex'}>
-                  <input id="search" name="keyword" placeholder="输入问题关键字，找到答案" type="search"/>
+                  <input id="search_custom_header" name="keyword" placeholder="输入问题关键字，找到答案" type="search"/>
                   <IconButton aria-label="close_search" title="关闭" onClick={()=>this.hideSearch()} style={{ color: '#000000' }} >
                     <CloseIcon className={classes.searchIcon}/>
                   </IconButton>

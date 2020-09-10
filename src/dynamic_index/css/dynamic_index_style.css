@@ -107,6 +107,7 @@ html{scroll-behavior:smooth;}
 
 .cus_h {
   position: relative;
+  z-index: -1;
 }
 
 .cus_h:before {

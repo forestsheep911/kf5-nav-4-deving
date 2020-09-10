@@ -42,6 +42,13 @@ sections : {
 记得每次修改后都需要重新打包出js文件上传至码云。
 （第3方依赖库没有新版本情况下，打包后只有/dist/cybozu_kf5_header.bundle.js会有变化）
 
+## 三级目录缓存机制
+
+三级目录区别与一、二级目录，是通过rest API获取的，并且利用了浏览器的localstorage将数据缓存在了浏览器中。
+缓存利用逻辑如下：
+1. 用户点击二级目录时-->如果缓存中没有该目录下的文档列表数据-->ajax请求异步获取-->获取到数据后， 保存进localstrage，并且页面显示文档列表。
+2. 用户点击二级目录时-->如果缓存中有该目录下的文档数据,并且数据没有超过有效时间1小时-->直接使用缓存数据。
+3. 用户点击二级目录时-->如果缓存中有该目录下的文档数据,并且数据超过有效时间1小时-->使用缓存数据，并后台发送异步请求更新缓存数据。（更新数据下次在页面前端生效）。
 ## KF5 Restful API
 本项目请求kf5 Restful API 时，使用的是 basic Auth.
 如果要替换用户。需要修改以下文件内几处信息。[目前使用该账户](https://bozuman.cybozu.com/k/21732/show#record=98)
@@ -66,4 +73,7 @@ sections : {
 * 查看指定文档分类的正式文档列表: /apiv2/forums/{forum_id}/posts.json [KF5 api 参考文档](https://developer.kf5.com/doc/restapi/core/)
 * 查看文档（获取返回json对象内的forum_id）：/apiv2/posts/{id}.json [KF5 api 参考文档1](https://developer.kf5.com/doc/restapi/helpcenter/38-210)
 [KF5 api 参考文档2](https://developer.kf5.com/doc/restapi/helpcenter/38-208)
+
+
+
 

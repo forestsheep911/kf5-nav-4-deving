@@ -21,7 +21,7 @@ export const catalogObject = {
           sectionsOrder: ['106252', '1019421']
   },
   '27416': {id: '27416', title: '插件', selected: false, hiddenW: 1015, sections: {
-          '1180831': {id: '1180831', title: '插件API', open: false, loading: false, articles: []},
+          '1180831': {id: '1180831', title: '插件API/CSS', open: false, loading: false, articles: []},
           '1180832': {id: '1180832', title: '插件开发', open: false, loading: false, articles: []},
           '1073272': {id: '1073272', title: '插件范例', open: false, loading: false, articles: []}
           },

@@ -55,6 +55,9 @@ function NestedList(props) {
       {
         catalogObjOrder.map((c_idx) => {
           var list = [];
+          if (c_idx === 'topic/'){
+            return;
+          }
           list.push(
             <ListSubheader key={c_idx} className={classes.subHeader + (catalog[c_idx]['selected'] && catalogState['type'] == 'category'  ? ' ' + classes.subHeaderSelected : '')} disableSticky={true}>{catalog[c_idx]['title']}</ListSubheader>
           )

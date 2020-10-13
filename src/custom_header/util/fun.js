@@ -21,7 +21,7 @@ const saveCache = (articles, section_id) => {
 export const getArticlesBySection = (section_id) => {
   // console.log('start geting articles list.......');
   let settings = {
-      "url": "https://cybozudev.kf5.com/apiv2/forums/"+ section_id +"/posts.json?sort=sort:desc,'is_top':1",
+      "url": "/apiv2/forums/"+ section_id +"/posts.json?sort=sort:desc,'is_top':1",
       "method": "GET",
       "headers": {
           "Authorization": "Basic a2ludG9uZWRldkBjeWJvenUuY246Y3lib3p1ZGw2NjY="
@@ -80,7 +80,7 @@ export const getCacheArticles = (section_id) => {
 export const getSectionIdByArticle = (article_id) => {
   // console.log('start geting article info......');
   let settings = {
-      "url": "https://cybozudev.kf5.com/apiv2/posts/"+ article_id + ".json",
+      "url": "/apiv2/posts/"+ article_id + ".json",
       "method": "GET",
       "headers": {
         "Authorization": "Basic a2ludG9uZWRldkBjeWJvenUuY246Y3lib3p1ZGw2NjY="

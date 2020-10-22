@@ -78,7 +78,7 @@ function NestedList(props) {
                 )
               } else {
                 sub_list.push(
-                  <ListItemLink  key={s_idx} href="javascript:void(0);" onClick={() => sectionClick(c_idx, section['id'])} >
+                  <ListItemLink  className={classes.bellows} key={s_idx} href="javascript:void(0);" onClick={() => sectionClick(c_idx, section['id'])} >
                     <ListItemText primary={section['title']} classes={{ primary: classes.textPrimary }}/> 
                     {sectionElem(section['loading'], section['open'])} 
                   </ListItemLink>

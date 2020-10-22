@@ -83,13 +83,20 @@ export const stylesB = theme => ({
   },
   nested: {
     paddingLeft: theme.spacing(4),
+    paddingBottom: '2px',
+    paddingTop: '2px',
   },
   subHeader: {
     paddingLeft: '8px',
+    lineHeight: '36px',
   },
   subHeaderSelected: {
     borderLeft: '4px solid #47ACDD',
     backgroundColor: '#e6f7ff'
+  },
+  bellows: {
+    paddingBottom: '2px',
+    paddingTop: '2px',
   },
   article: {
     color: '#448ee1',

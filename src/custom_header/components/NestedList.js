@@ -19,7 +19,9 @@ function NestedList(props) {
 
   React.useEffect(()=> {
     if(typeof domRef.current !== 'undefined'){
-      domRef.current.scrollIntoView();
+      setTimeout(() => {
+        domRef.current.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+      }, 600);
     }
   },[props.catalogState]);
 

@@ -32,7 +32,7 @@ export const adjustPages = (comp) => {
   jQuery('main').find('.navigation').remove();
 
   //将旧title bar隐藏
-  jQuery('.header').eq(0).hide();
+  // jQuery('.header').eq(0).hide();
 
   //整个react UI组件都渲染完后，将遮盖层隐藏
   let coverLayer = jQuery('#cover_layer');

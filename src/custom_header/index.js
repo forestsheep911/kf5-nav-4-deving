@@ -6,5 +6,6 @@ import KfiveCustomHeader from './components/KfiveCustomHeader';
 import css from './css/style.scss';
 
 window.Promise = window.Promise || Promise;
+console.log("start React")
 ReactDOM.render(<KfiveCustomHeader />, document.getElementById('header'));
 

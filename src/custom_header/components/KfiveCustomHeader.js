@@ -38,6 +38,7 @@ class KfiveCustomHeader extends Component {
   }
 
   componentDidMount(){
+    console.log("componentDidMount")
     let page_type = 'other';
     let current_url = parent.document.getElementById('preview_frame') ? parent.document.getElementById('preview_frame').contentWindow.location.href : window.location.href;
     

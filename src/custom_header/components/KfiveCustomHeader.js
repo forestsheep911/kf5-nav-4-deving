@@ -25,6 +25,7 @@ const catalogStateInfo = {
 class KfiveCustomHeader extends Component {
   constructor(props) {
     super(props)
+    this.kfsearch = React.createRef();
     this.state = {
       mobileOpen: false,
       needPermanent: false,
@@ -37,7 +38,7 @@ class KfiveCustomHeader extends Component {
   }
 
   componentDidMount(){
-
+    console.log("componentDidMount")
     let page_type = 'other';
     let current_url = parent.document.getElementById('preview_frame') ? parent.document.getElementById('preview_frame').contentWindow.location.href : window.location.href;
     
@@ -76,6 +77,9 @@ class KfiveCustomHeader extends Component {
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+}
+
   handleDrawerToggle(){
     this.setState(state =>({
       mobileOpen: !state.mobileOpen
@@ -99,7 +103,13 @@ class KfiveCustomHeader extends Component {
     e.nativeEvent.stopImmediatePropagation();
     this.setState(state =>({
       showSearch: true
-    }))
+    }),()=>{
+      // 显示搜索框之后，回调这里，由于不是根层次，有延迟
+      // 所以采用等待，但真正好的做法应该是拆分组件，使用它自己的render，有待改进
+      setTimeout(() => {
+        this.kfsearch.current.focus();
+      }, 95);
+    })
   }
 
   hideSearch(){
@@ -164,7 +174,7 @@ class KfiveCustomHeader extends Component {
             <div className={'cust_search_box' + (this.state.showSearch ? ' cust_search_box_expand' : '')} onClick={(e)=>this.stop(e)}>
               <form className={'cust_search_box_form' + (this.state.showSearch ? ' cust_search_box_form_expand' : '')} accept-charset="UTF-8" action="/hc/search/results/" method="get">
                 <div className={'cust_search_box_flex'}>
-                  <input id="search_custom_header" name="keyword" placeholder="输入问题关键字，找到答案" type="search"/>
+                  <input ref={this.kfsearch} id="search_custom_header" name="keyword" placeholder="输入问题关键字，找到答案" type="search"/>
                   <IconButton aria-label="close_search" title="关闭" onClick={()=>this.hideSearch()} style={{ color: '#000000' }} >
                     <CloseIcon className={classes.searchIcon}/>
                   </IconButton>

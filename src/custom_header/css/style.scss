@@ -12,15 +12,22 @@ $highlight-blue: #47ACDD;
   flex: 0 0 100%;
 }
 
-@media (max-width:1660px){
+@media (max-width:2880px){
   .cust_content {
     margin-left: 260px;
   }
 }
 
+@media (max-width:1660px){
+  .cust_content {
+    padding-left: 260px;
+    margin-left: 0px;
+  }
+}
+
 @media (max-width:960px){
   .cust_content {
-    margin-left: 0px;
+    padding-left: 0px;
   }
 }
 

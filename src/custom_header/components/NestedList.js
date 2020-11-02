@@ -19,7 +19,9 @@ function NestedList(props) {
 
   React.useEffect(()=> {
     if(typeof domRef.current !== 'undefined'){
-      domRef.current.scrollIntoView();
+      setTimeout(() => {
+        domRef.current.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+      }, 600);
     }
   },[props.catalogState]);
 
@@ -55,6 +57,9 @@ function NestedList(props) {
       {
         catalogObjOrder.map((c_idx) => {
           var list = [];
+          if (c_idx === 'topic/'){
+            return;
+          }
           list.push(
             <ListSubheader key={c_idx} className={classes.subHeader + (catalog[c_idx]['selected'] && catalogState['type'] == 'category'  ? ' ' + classes.subHeaderSelected : '')} disableSticky={true}>{catalog[c_idx]['title']}</ListSubheader>
           )
@@ -75,7 +80,7 @@ function NestedList(props) {
                 )
               } else {
                 sub_list.push(
-                  <ListItemLink  key={s_idx} href="javascript:void(0);" onClick={() => sectionClick(c_idx, section['id'])} >
+                  <ListItemLink  className={classes.bellows} key={s_idx} href="javascript:void(0);" onClick={() => sectionClick(c_idx, section['id'])} >
                     <ListItemText primary={section['title']} classes={{ primary: classes.textPrimary }}/> 
                     {sectionElem(section['loading'], section['open'])} 
                   </ListItemLink>
